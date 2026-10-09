@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Angelica & Marjhun | Wedding Invitation</title>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    background-image: url("opening-background.png");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   INVITATION
+========================================================= */
+
+.invitation {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1024px;
+
+    margin: 0 auto;
+
+    line-height: 0;
+}
+
+
+/* =========================================================
+   COMPLETE FLORAL INVITATION IMAGE
+========================================================= */
+
+.invitation-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   CLICKABLE BUTTONS
+========================================================= */
+
+.invitation-button {
+
+    position: absolute;
+
+    z-index: 20;
+
+    display: block;
+
+    background: transparent;
+
+    border: 0;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+/* Subtle desktop hover */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .invitation-button:hover {
+
+        background: rgba(255,255,255,.10);
+
+        transform: scale(1.03);
+    }
+
+}
+
+
+/* =========================================================
+   THE DETAILS
+========================================================= */
+
+.details-button {
+
+    left: 25%;
+
+    top: 55%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-button {
+
+    left: 62%;
+
+    top: 57%;
+
+    width: 32%;
+
+    height: 8%;
+}
+
+
+/* =========================================================
+   OUR STORY
+========================================================= */
+
+.story-button {
+
+    left: 22%;
+
+    top: 86%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   PRENUP
+========================================================= */
+
+.prenup-button {
+
+    left: 58%;
+
+    top: 86%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   BACK TO OPENING
+========================================================= */
+
+.back-button {
+
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 18px;
+
+    left: 18px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(168,135,98,.55);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.94);
+
+    color: #765a76;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    line-height: 1.2;
+
+    box-shadow:
+        0 6px 20px rgba(70,45,70,.16);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.back-button:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        background-attachment: scroll;
+    }
+
+
+    .back-button {
+
+        top: 12px;
+
+        left: 12px;
+
+        padding: 9px 14px;
+
+        font-size: 9px;
+    }
+
+
+    .details-button {
+
+        left: 24%;
+
+        top: 55%;
+
+        width: 33%;
+
+        height: 7%;
+    }
+
+
+    .rsvp-button {
+
+        left: 61%;
+
+        top: 57%;
+
+        width: 34%;
+
+        height: 8%;
+    }
+
+
+    .story-button {
+
+        left: 20%;
+
+        top: 86%;
+
+        width: 34%;
+
+        height: 7%;
+    }
+
+
+    .prenup-button {
+
+        left: 57%;
+
+        top: 86%;
+
+        width: 35%;
+
+        height: 7%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BACK TO OPENING
+========================================================= -->
+
+<a
+    href="index.html"
+    class="back-button"
+>
+    ← Back to Opening
+</a>
+
+
+<!-- =========================================================
+     FLORAL INVITATION
+========================================================= -->
+
+<main class="invitation">
+
+
+    <img
+        src="inside-envelope.png"
+        alt="Angelica and Marjhun Wedding Invitation"
+        class="invitation-image"
+    >
+
+
+    <!-- =====================================================
+         THE DETAILS
+    ====================================================== -->
+
+    <a
+        href="details.html"
+        class="invitation-button details-button"
+        aria-label="The Details"
+        title="The Details"
+    ></a>
+
+
+    <!-- =====================================================
+         RSVP
+    ====================================================== -->
+
+    <a
+        href="rsvp.html"
+        class="invitation-button rsvp-button"
+        aria-label="RSVP"
+        title="RSVP"
+    ></a>
+
+
+    <!-- =====================================================
+         OUR STORY
+    ====================================================== -->
+
+    <a
+        href="story.html"
+        class="invitation-button story-button"
+        aria-label="Our Story"
+        title="Our Story"
+    ></a>
+
+
+    <!-- =====================================================
+         PRENUP
+    ====================================================== -->
+
+    <a
+        href="prenup.html"
+        class="invitation-button prenup-button"
+        aria-label="Prenup"
+        title="Prenup"
+    ></a>
+
+
+</main>
+
+
+</body>
+
+</html>
