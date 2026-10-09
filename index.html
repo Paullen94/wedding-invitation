@@ -359,35 +359,6 @@ section{
  
  
  
-/* ========================================================= 
-   OPEN INVITATION 
-========================================================= */ 
- 
-document 
-  .getElementById("openInvitation") 
-  .addEventListener( 
-    "click", 
-    async () => { 
- 
-      try{ 
-        await music.play(); 
-      }catch(e){} 
- 
-      document 
-        .getElementById("opening") 
-        .style.display = "none"; 
- 
-      document 
-        .getElementById("invitation") 
-        .classList.add("show"); 
- 
-      window.scrollTo({ 
-        top:0, 
-        behavior:"smooth" 
-      }); 
- 
-    } 
-  ); 
   <!-- =========================================================
      SCRIPTS
 ========================================================= -->
