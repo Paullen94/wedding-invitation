@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fff7f2">
-
   <title>Our Story | Jelai &amp; Jhun</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,9 +52,9 @@
     }
 
     .page {
-      width: min(1100px, 100%);
+      width: min(1180px, 100%);
       margin: auto;
-      padding: 22px 20px 45px;
+      padding: 22px 24px 45px;
     }
 
     /* NAVIGATION */
@@ -101,7 +100,7 @@
       background: #3c1b40;
     }
 
-    /* HEADER */
+    /* HERO */
     .hero {
       text-align: center;
       padding: 28px 14px 30px;
@@ -111,7 +110,7 @@
       display: inline-block;
       padding: 4px 9px;
       color: #67416f;
-      background: rgba(255, 250, 243, .9);
+      background: rgba(255, 250, 243, .93);
       border-radius: 5px;
       font-size: 11px;
       font-weight: 700;
@@ -152,7 +151,7 @@
       margin-top: 17px;
       padding: 5px 12px;
       color: #58375e;
-      background: rgba(255, 250, 243, .9);
+      background: rgba(255, 250, 243, .93);
       border-radius: 6px;
       font-size: 11px;
       font-weight: 700;
@@ -161,11 +160,11 @@
     }
 
     .hero-intro {
-      max-width: 690px;
+      max-width: 720px;
       margin: 18px auto 0;
       padding: 12px 18px;
       border-radius: 10px;
-      background: rgba(255, 250, 243, .92);
+      background: rgba(255, 250, 243, .94);
       color: #422c47;
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(23px, 3vw, 29px);
@@ -173,7 +172,7 @@
       line-height: 1.55;
     }
 
-    /* TRANSPARENT WATERCOLOUR ROSE DIVIDER */
+    /* WATERCOLOUR ROSE DIVIDER */
     .rose-divider {
       display: block;
       width: min(340px, 75%);
@@ -188,7 +187,7 @@
       margin: 18px auto 24px;
     }
 
-    /* STORY INTRODUCTION */
+    /* STORY TEXT */
     .section {
       padding: 24px 0 30px;
     }
@@ -209,11 +208,11 @@
     }
 
     .section-heading p {
-      max-width: 650px;
+      max-width: 700px;
       margin: 8px auto 0;
       padding: 7px 13px;
       border-radius: 7px;
-      background: rgba(255, 250, 243, .92);
+      background: rgba(255, 250, 243, .94);
       color: #422c47;
       font-family: 'Cormorant Garamond', serif;
       font-size: 23px;
@@ -255,46 +254,56 @@
       margin-bottom: 0;
     }
 
-    /* ALL 20 REPOSITORY PHOTOS */
+    /* PHOTO GALLERY: TWO LARGE PHOTOS PER ROW */
     .photo-gallery {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       align-items: start;
-      gap: 22px;
-      margin: 30px 0 40px;
+      gap: 30px;
+      width: 100%;
+      margin: 32px auto 45px;
     }
 
     .polaroid {
       min-width: 0;
-      padding: 10px 10px 28px;
+      padding: 12px 12px 30px;
       background: #fffdf9;
       border: 1px solid #e7d6e6;
-      box-shadow: 0 10px 25px rgba(63, 35, 66, .15);
+      box-shadow: 0 12px 28px rgba(63, 35, 66, .16);
       transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .polaroid:nth-child(3n + 1) {
-      transform: rotate(-1deg);
+    .polaroid:nth-child(4n + 1) {
+      transform: rotate(-.5deg);
     }
 
-    .polaroid:nth-child(3n + 2) {
-      transform: translateY(8px) rotate(.6deg);
+    .polaroid:nth-child(4n + 2) {
+      transform: rotate(.5deg);
     }
 
-    .polaroid:nth-child(3n) {
-      transform: rotate(1deg);
+    .polaroid:nth-child(4n + 3) {
+      transform: rotate(.4deg);
+    }
+
+    .polaroid:nth-child(4n) {
+      transform: rotate(-.4deg);
     }
 
     .polaroid:hover {
       transform: translateY(-4px) rotate(0);
-      box-shadow: 0 15px 30px rgba(63, 35, 66, .2);
+      box-shadow: 0 17px 34px rgba(63, 35, 66, .2);
     }
 
+    /*
+      Fill the complete photo area.
+      Portraits and landscape images are cropped proportionally,
+      never stretched, and never show empty side bars.
+    */
     .polaroid-photo {
       width: 100%;
-      aspect-ratio: 3 / 2;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: #f4eaf0;
+      background: #eadfe7;
       border: 1px solid #eee1eb;
     }
 
@@ -302,11 +311,9 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
+      object-fit: cover;
+      object-position: center center;
     }
-
-    /* NO PHOTO CAPTIONS */
 
     /* SCRIPTURE */
     .verse {
@@ -351,11 +358,11 @@
     }
 
     .closing p {
-      max-width: 680px;
+      max-width: 700px;
       margin: 10px auto 24px;
       padding: 12px 17px;
       border-radius: 8px;
-      background: rgba(255, 250, 243, .92);
+      background: rgba(255, 250, 243, .94);
       color: #39283e;
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px;
@@ -382,14 +389,20 @@
       text-shadow: 0 1px 0 rgba(255, 250, 243, .95);
     }
 
-    @media (max-width: 760px) {
+    /* TABLET AND MOBILE */
+    @media (max-width: 650px) {
       .page {
-        padding: 13px 13px 32px;
+        padding: 13px 12px 32px;
       }
 
       .photo-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
+        gap: 14px;
+        margin: 22px auto 32px;
+      }
+
+      .polaroid {
+        padding: 7px 7px 19px;
       }
 
       .polaroid:nth-child(n) {
@@ -398,6 +411,10 @@
 
       .polaroid:hover {
         transform: translateY(-3px);
+      }
+
+      .polaroid-photo {
+        aspect-ratio: 3 / 4;
       }
 
       .top-navigation {
@@ -449,7 +466,11 @@
 
     @media (max-width: 370px) {
       .photo-gallery {
-        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .polaroid {
+        padding: 5px 5px 15px;
       }
 
       .top-navigation .nav-button {
@@ -479,7 +500,7 @@
 
   <main class="page">
 
-    <!-- BACK RETURNS TO THE CLICKABLE INVITATION HUB -->
+    <!-- BACK TO THE CLICKABLE INVITATION HUB -->
     <nav class="top-navigation" aria-label="Wedding navigation">
       <a class="nav-button" href="inside.html">
         ← Back to Invitation
@@ -490,7 +511,7 @@
       </a>
     </nav>
 
-    <!-- HEADER -->
+    <!-- HERO -->
     <header class="hero">
       <div class="eyebrow">A Journey Written by God</div>
 
@@ -508,12 +529,10 @@
         and the beautiful timing of God.
       </p>
 
-      <img
-        class="rose-divider"
-        src="./rose.png"
-        alt=""
-        aria-hidden="true"
-      >
+      <img class="rose-divider"
+           src="./rose.png"
+           alt=""
+           aria-hidden="true">
     </header>
 
     <!-- CHAPTER ONE -->
@@ -542,79 +561,49 @@
 
     </section>
 
-    <!-- FIRST 10 PHOTOS -->
-    <section class="section" aria-label="Our memories, first collection">
+    <!-- PHOTOS 1–10 -->
+    <section class="section" aria-label="Our first collection of memories">
       <div class="photo-gallery">
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%201.jpg"
-                 alt="Jelai and Jhun memory 1" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%201.jpg" alt="Jelai and Jhun memory 1" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%202.jpg"
-                 alt="Jelai and Jhun memory 2" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%202.jpg" alt="Jelai and Jhun memory 2" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%203.jpg"
-                 alt="Jelai and Jhun memory 3" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%203.jpg" alt="Jelai and Jhun memory 3" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%204.jpg"
-                 alt="Jelai and Jhun memory 4" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%204.jpg" alt="Jelai and Jhun memory 4" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%205.jpg"
-                 alt="Jelai and Jhun memory 5" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%205.jpg" alt="Jelai and Jhun memory 5" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%206.jpg"
-                 alt="Jelai and Jhun memory 6" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%206.jpg" alt="Jelai and Jhun memory 6" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%207.jpg"
-                 alt="Jelai and Jhun memory 7" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%207.jpg" alt="Jelai and Jhun memory 7" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%208.jpg"
-                 alt="Jelai and Jhun memory 8" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%208.jpg" alt="Jelai and Jhun memory 8" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%209.jpg"
-                 alt="Jelai and Jhun memory 9" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%209.jpg" alt="Jelai and Jhun memory 9" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2010.jpg"
-                 alt="Jelai and Jhun memory 10" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2010.jpg" alt="Jelai and Jhun memory 10" loading="lazy">
+        </div></div>
 
       </div>
     </section>
@@ -648,79 +637,49 @@
 
     </section>
 
-    <!-- REMAINING 10 PHOTOS -->
-    <section class="section" aria-label="Our memories, second collection">
+    <!-- PHOTOS 11–20 -->
+    <section class="section" aria-label="Our second collection of memories">
       <div class="photo-gallery">
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2011.jpg"
-                 alt="Jelai and Jhun memory 11" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2011.jpg" alt="Jelai and Jhun memory 11" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2012.jpg"
-                 alt="Jelai and Jhun memory 12" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2012.jpg" alt="Jelai and Jhun memory 12" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2013.jpg"
-                 alt="Jelai and Jhun memory 13" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2013.jpg" alt="Jelai and Jhun memory 13" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2014.jpg"
-                 alt="Jelai and Jhun memory 14" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2014.jpg" alt="Jelai and Jhun memory 14" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2015.jpg"
-                 alt="Jelai and Jhun memory 15" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2015.jpg" alt="Jelai and Jhun memory 15" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2016.jpg"
-                 alt="Jelai and Jhun memory 16" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2016.jpg" alt="Jelai and Jhun memory 16" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2017.jpg"
-                 alt="Jelai and Jhun memory 17" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2017.jpg" alt="Jelai and Jhun memory 17" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2018.jpg"
-                 alt="Jelai and Jhun memory 18" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2018.jpg" alt="Jelai and Jhun memory 18" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2019.jpg"
-                 alt="Jelai and Jhun memory 19" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2019.jpg" alt="Jelai and Jhun memory 19" loading="lazy">
+        </div></div>
 
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img src="./OUR%20STORY%20PICS/story%2020.jpg"
-                 alt="Jelai and Jhun memory 20" loading="lazy">
-          </div>
-        </div>
+        <div class="polaroid"><div class="polaroid-photo">
+          <img src="./OUR%20STORY%20PICS/story%2020.jpg" alt="Jelai and Jhun memory 20" loading="lazy">
+        </div></div>
 
       </div>
     </section>
@@ -780,12 +739,10 @@
     <!-- CLOSING -->
     <footer class="closing">
 
-      <img
-        class="rose-divider large"
-        src="./rose.png"
-        alt=""
-        aria-hidden="true"
-      >
+      <img class="rose-divider large"
+           src="./rose.png"
+           alt=""
+           aria-hidden="true">
 
       <h2 class="script-heading">And So, Our Forever Begins</h2>
 
@@ -794,8 +751,6 @@
         always be rooted in faith, strengthened by love, and guided
         by the One who brought our paths together.
       </p>
-
-      <!-- No final small flower or photo-storage notice. -->
 
       <div class="bottom-navigation">
         <a class="nav-button primary" href="inside.html">
