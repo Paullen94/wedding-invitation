@@ -1,0 +1,1368 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jelai &amp; Jhun | Wedding Details</title>
+
+<style>
+:root {
+    /* Wedding colors */
+    --lavender: #B8A9D9;
+    --lilac: #C9B7E8;
+    --blush-pink: #E8B7C8;
+    --powder-blue: #AFCFE3;
+    --ivory: #FFF8E7;
+
+    /* Typography */
+    --deep-lavender: #75618E;
+    --mauve-plum: #59465F;
+    --muted-lavender: #806B9B;
+
+    /* Principal Sponsors: cream and ivory palette */
+    --sponsor-cream-1: #F5E7B2;
+    --sponsor-cream-2: #F8EFC4;
+    --sponsor-cream-3: #FFFBD1;
+    --sponsor-cream-4: #FFFEF0;
+    --sponsor-cream-5: #D5CCA6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--mauve-plum);
+    background-color: var(--ivory);
+    background-image: url("./opening-background.png");
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.details-page {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.details-content {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px 80px;
+}
+
+/* =====================================================
+   COUPLE PHOTO — FULL WIDTH
+===================================================== */
+
+.couple-banner {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: hidden;
+}
+
+.couple-banner img {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    height: auto;
+    margin: 0;
+}
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+.music-area {
+    text-align: center;
+    margin: 28px 0 20px;
+}
+
+.music-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid var(--lavender);
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--deep-lavender);
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(89, 70, 95, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.06);
+}
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section {
+    text-align: center;
+    margin: 12px auto 50px;
+}
+
+.countdown-title {
+    margin: 0 0 18px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--deep-lavender);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.countdown-box {
+    min-width: 78px;
+    padding: 13px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(184, 169, 217, 0.6);
+}
+
+.countdown-number {
+    display: block;
+    font-size: 27px;
+    font-weight: bold;
+    color: var(--mauve-plum);
+}
+
+.countdown-label {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted-lavender);
+}
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section {
+    margin: 65px auto;
+    text-align: center;
+}
+
+.section-title {
+    margin: 0 0 28px;
+    font-size: 38px;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+    color: var(--deep-lavender);
+    font-weight: 500;
+}
+
+/* =====================================================
+   CEREMONY AND RECEPTION
+===================================================== */
+
+.venue-card {
+    max-width: 760px;
+    margin: 32px auto;
+    text-align: center;
+}
+
+.venue-card img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    margin: 0 auto 20px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.venue-name {
+    margin: 8px 0;
+    font-size: 27px;
+    color: var(--mauve-plum);
+}
+
+.venue-address {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--mauve-plum);
+}
+
+/* =====================================================
+   ENTOURAGE
+===================================================== */
+
+.entourage-section {
+    text-align: center;
+}
+
+.entourage-group {
+    max-width: 900px;
+    margin: 45px auto;
+}
+
+.entourage-group-title {
+    margin-bottom: 22px;
+    font-size: 25px;
+    color: var(--deep-lavender);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.entourage-list {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.entourage-list li {
+    margin: 8px 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--mauve-plum);
+}
+
+.entourage-role {
+    font-weight: bold;
+    color: var(--muted-lavender);
+}
+
+/* =====================================================
+   BRIDE'S BANNER
+===================================================== */
+
+.brides-banner {
+    margin: 55px auto 10px;
+    text-align: center;
+}
+
+.brides-banner-title {
+    margin-bottom: 22px;
+    font-size: 28px;
+    color: var(--deep-lavender);
+    letter-spacing: 1px;
+}
+
+.brides-banner-name {
+    margin-top: 18px;
+    font-size: 22px;
+    color: var(--mauve-plum);
+}
+
+/* =====================================================
+   ATTIRE
+===================================================== */
+
+.attire-section {
+    margin-top: 45px;
+    text-align: center;
+}
+
+.attire-main-caption {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    font-size: 23px;
+    line-height: 1.55;
+    color: var(--mauve-plum);
+}
+
+.attire-group {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto 75px;
+    text-align: center;
+}
+
+.attire-group-title {
+    margin: 0 0 25px;
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--deep-lavender);
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.attire-image {
+    display: block;
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    mix-blend-mode: normal;
+}
+
+/* =====================================================
+   ATTIRE COLOR PALETTES
+===================================================== */
+
+.color-palette {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px auto 0;
+    padding: 0;
+}
+
+.color-circle {
+    display: block;
+    flex: 0 0 auto;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+}
+
+/* Principal Sponsors — cream and ivory tones */
+
+.principal-palette .color-circle:nth-child(1) {
+    background: var(--sponsor-cream-1);
+}
+
+.principal-palette .color-circle:nth-child(2) {
+    background: var(--sponsor-cream-2);
+}
+
+.principal-palette .color-circle:nth-child(3) {
+    background: var(--sponsor-cream-3);
+}
+
+.principal-palette .color-circle:nth-child(4) {
+    background: var(--sponsor-cream-4);
+    border: 1px solid #E7E1CD;
+}
+
+.principal-palette .color-circle:nth-child(5) {
+    background: var(--sponsor-cream-5);
+}
+
+/* Entourage — 4 wedding colors */
+
+.entourage-palette .color-circle:nth-child(1) {
+    background: var(--lavender);
+}
+
+.entourage-palette .color-circle:nth-child(2) {
+    background: var(--lilac);
+}
+
+.entourage-palette .color-circle:nth-child(3) {
+    background: var(--blush-pink);
+}
+
+.entourage-palette .color-circle:nth-child(4) {
+    background: var(--powder-blue);
+}
+
+/* Guests — all 5 wedding colors */
+
+.guest-palette .color-circle:nth-child(1) {
+    background: var(--lavender);
+}
+
+.guest-palette .color-circle:nth-child(2) {
+    background: var(--lilac);
+}
+
+.guest-palette .color-circle:nth-child(3) {
+    background: var(--blush-pink);
+}
+
+.guest-palette .color-circle:nth-child(4) {
+    background: var(--powder-blue);
+}
+
+.guest-palette .color-circle:nth-child(5) {
+    background: var(--ivory);
+    border: 1px solid #D8CCB8;
+}
+
+/* =====================================================
+   PRINCIPAL SPONSORS ATTIRE INSTRUCTIONS
+===================================================== */
+
+.principal-attire-note {
+    max-width: 850px;
+    margin: 25px auto 0;
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--mauve-plum);
+}
+
+.principal-attire-note strong {
+    color: var(--deep-lavender);
+}
+
+/* =====================================================
+   ATTIRE NOTICE
+===================================================== */
+
+.attire-notice {
+    max-width: 850px;
+    margin: 5px auto 45px;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(117, 97, 142, 0.35);
+    border-bottom: 1px solid rgba(117, 97, 142, 0.35);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--mauve-plum);
+}
+
+/* =====================================================
+   IN LIEU OF GIFTS — BANK QR CODES
+===================================================== */
+
+.gifts-section {
+    max-width: 950px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.gifts-section > img.gifts-illustration {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 25px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.gifts-title {
+    margin-bottom: 18px;
+    font-size: 32px;
+    color: var(--deep-lavender);
+}
+
+.gifts-text {
+    max-width: 850px;
+    margin: 0 auto 32px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--mauve-plum);
+}
+
+/* QR code layout */
+
+.bank-qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin: 35px auto 0;
+}
+
+.bank-qr-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(184, 169, 217, 0.55);
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(89, 70, 95, 0.08);
+}
+
+.bank-qr-card img {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    background: #FFFFFF;
+}
+
+.bank-qr-label {
+    margin: 14px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--mauve-plum);
+}
+
+/* =====================================================
+   OH SNAP — OFFICIAL HASHTAG
+===================================================== */
+
+.oh-snap-section {
+    margin: 80px auto 70px;
+    text-align: center;
+}
+
+.oh-snap-section img {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin: 0 auto 20px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.oh-snap-title {
+    margin: 0 0 14px;
+    font-size: 35px;
+    color: var(--deep-lavender);
+}
+
+.hashtag-instruction {
+    margin: 0 auto 14px;
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: var(--deep-lavender);
+}
+
+.hashtag {
+    margin: 0 auto;
+    font-size: 23px;
+    font-weight: bold;
+    color: var(--mauve-plum);
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-area {
+    margin: 70px auto 35px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: 1px solid var(--lavender);
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--mauve-plum);
+    font-size: 16px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: var(--deep-lavender);
+    color: #FFFFFF;
+}
+
+/* =====================================================
+   FADE-IN
+===================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 1200px) {
+    .details-content {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .attire-group {
+        max-width: 1100px;
+    }
+
+    .section-title {
+        font-size: 42px;
+    }
+
+    .color-circle {
+        width: 76px;
+        height: 76px;
+    }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+    .details-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section {
+        margin: 50px auto;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .attire-group-title {
+        font-size: 29px;
+    }
+
+    .attire-main-caption {
+        font-size: 21px;
+    }
+
+    .color-circle {
+        width: 65px;
+        height: 65px;
+    }
+
+    .bank-qr-card {
+        max-width: 260px;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+    body {
+        background-size: auto 100%;
+        background-attachment: scroll;
+    }
+
+    .details-content {
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-bottom: 50px;
+    }
+
+    .music-area {
+        margin-top: 20px;
+    }
+
+    .music-button {
+        width: 52px;
+        height: 52px;
+        font-size: 19px;
+    }
+
+    .countdown-section {
+        margin-bottom: 35px;
+    }
+
+    .countdown-title {
+        font-size: 18px;
+    }
+
+    .countdown {
+        gap: 7px;
+    }
+
+    .countdown-box {
+        min-width: 68px;
+        padding: 10px 7px;
+    }
+
+    .countdown-number {
+        font-size: 22px;
+    }
+
+    .countdown-label {
+        font-size: 9px;
+    }
+
+    .section {
+        margin: 42px auto;
+    }
+
+    .section-title {
+        font-size: 29px;
+        letter-spacing: 1px;
+    }
+
+    .venue-name {
+        font-size: 22px;
+    }
+
+    .venue-address {
+        font-size: 16px;
+    }
+
+    .entourage-group {
+        margin: 35px auto;
+    }
+
+    .entourage-group-title {
+        font-size: 21px;
+    }
+
+    .entourage-list li {
+        font-size: 16px;
+    }
+
+    .brides-banner-title {
+        font-size: 23px;
+    }
+
+    .brides-banner-name {
+        font-size: 19px;
+    }
+
+    .attire-main-caption {
+        font-size: 18px;
+        line-height: 1.55;
+        margin-bottom: 38px;
+    }
+
+    .attire-group {
+        margin-bottom: 55px;
+    }
+
+    .attire-group-title {
+        font-size: 25px;
+        margin-bottom: 18px;
+    }
+
+    .attire-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .color-palette {
+        gap: 8px;
+        margin-top: 18px;
+    }
+
+    .color-circle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .principal-attire-note {
+        font-size: 17px;
+    }
+
+    .attire-notice {
+        font-size: 16px;
+        padding: 17px;
+    }
+
+    .gifts-title {
+        font-size: 27px;
+    }
+
+    .gifts-text {
+        font-size: 17px;
+    }
+
+    .bank-qr-container {
+        gap: 22px;
+    }
+
+    .bank-qr-card {
+        max-width: 290px;
+        padding: 16px;
+    }
+
+    .bank-qr-card img {
+        max-width: 240px;
+    }
+
+    .oh-snap-title {
+        font-size: 29px;
+    }
+
+    .hashtag-instruction {
+        font-size: 14px;
+    }
+
+    .hashtag {
+        font-size: 18px;
+    }
+
+    .back-button {
+        min-width: 130px;
+        padding: 13px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="details-page">
+<div class="details-content">
+
+<!-- =====================================================
+     COUPLE PHOTO
+===================================================== -->
+
+<section class="couple-banner fade-in">
+    <img src="./couple.jpg" alt="Jelai and Jhun">
+</section>
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<section class="music-area fade-in">
+    <button
+        class="music-button"
+        id="musicButton"
+        type="button"
+        aria-label="Play wedding music"
+    >♪</button>
+
+    <audio id="weddingMusic" loop>
+        <source src="./wedding-music.mp3" type="audio/mpeg">
+    </audio>
+</section>
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="countdown-section fade-in">
+
+    <h2 class="countdown-title">DECEMBER 28, 2026</h2>
+
+    <div class="countdown">
+
+        <div class="countdown-box">
+            <span class="countdown-number" id="days">0</span>
+            <span class="countdown-label">Days</span>
+        </div>
+
+        <div class="countdown-box">
+            <span class="countdown-number" id="hours">0</span>
+            <span class="countdown-label">Hours</span>
+        </div>
+
+        <div class="countdown-box">
+            <span class="countdown-number" id="minutes">0</span>
+            <span class="countdown-label">Minutes</span>
+        </div>
+
+        <div class="countdown-box">
+            <span class="countdown-number" id="seconds">0</span>
+            <span class="countdown-label">Seconds</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- =====================================================
+     CEREMONY
+===================================================== -->
+
+<section class="section fade-in">
+
+    <h2 class="section-title">CEREMONY</h2>
+
+    <div class="venue-card">
+
+        <img src="./ceremony.png" alt="Ceremony">
+
+        <h3 class="venue-name">
+            ST. JOHN THE BAPTIST PARISH
+        </h3>
+
+        <p class="venue-address">LAGONGLONG</p>
+
+        <p class="venue-address">
+            Ceremony starts at 3:00 PM
+        </p>
+
+    </div>
+</section>
+
+<!-- =====================================================
+     RECEPTION
+===================================================== -->
+
+<section class="section fade-in">
+
+    <h2 class="section-title">RECEPTION</h2>
+
+    <div class="venue-card">
+
+        <img src="./reception.png" alt="Reception">
+
+        <h3 class="venue-name">THE SPOT</h3>
+
+        <p class="venue-address">BRGY. MANDANGOA</p>
+
+    </div>
+</section>
+
+<!-- =====================================================
+     ENTOURAGE
+===================================================== -->
+
+<section class="section entourage-section fade-in">
+
+    <h2 class="section-title">ENTOURAGE</h2>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">THE COUPLE</h3>
+
+        <ul class="entourage-list">
+            <li><span class="entourage-role">Groom:</span> Marjhun T. Mondano</li>
+            <li><span class="entourage-role">Bride:</span> Angelica Mae P. Achas</li>
+        </ul>
+
+    </div>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">PARENTS</h3>
+
+        <ul class="entourage-list">
+            <li>
+                <span class="entourage-role">Groom's Parents:</span>
+                Francis C. Mondano &amp; Victoria T. Mondano
+            </li>
+            <li>
+                <span class="entourage-role">Bride's Parents:</span>
+                Teofano Y. Achas Jr. &amp; Haidee P. Achas
+            </li>
+            <li>
+                <span class="entourage-role">Mother Figure:</span>
+                Lorena L. Achas
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">PRINCIPAL SPONSORS</h3>
+
+        <ul class="entourage-list">
+            <li>Mr. Kenneth T. Capistrano / Mrs. Mila Capistrano</li>
+            <li>Mr. &amp; Mrs. Ramon G. Tabor / Mr. &amp; Mrs. Josephine Dongallo Tabor</li>
+            <li>Mr. &amp; Mrs. Fructuoso Gruta / Mrs. Marites N. Gruta</li>
+            <li>Mr. Richard Arevalo / Mrs. Sheila Paloma Arevalo</li>
+            <li>Mr. Dodoy Roa Llagas / Mrs. Septembrerena L. Llagas</li>
+            <li>Mr. Elizar Dagala / Mrs. Maribella M. Dagala</li>
+            <li>Mr. Johny Mondano / Mrs. Madel Mondano</li>
+            <li>Mr. Ernar John Zuleta / Mrs. Marciel M. Zuleta</li>
+            <li>Mr. Bonifacio Cabaron / Mrs. Josephine Cabaron</li>
+            <li>Mr. Elvic Balaba / Mrs. Precila M. Balaba</li>
+            <li>Mr. Jose Lovino / Mrs. Irine Lovino</li>
+        </ul>
+
+    </div>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">HONOR ATTENDANTS</h3>
+
+        <ul class="entourage-list">
+            <li>
+                <span class="entourage-role">Maid of Honor:</span>
+                Carmela Faye C. Galela
+            </li>
+            <li>
+                <span class="entourage-role">Best Man:</span>
+                Rafael Kiamco
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">SECONDARY SPONSORS</h3>
+
+        <ul class="entourage-list">
+            <li>
+                <span class="entourage-role">Cord:</span>
+                Mr. &amp; Mrs. Arman / Belinda P. Pene
+            </li>
+            <li>
+                <span class="entourage-role">Veil:</span>
+                Mrs. Recy Dagupan Mondano / Mr. Edward Erdelion Mondano
+            </li>
+            <li>
+                <span class="entourage-role">Candle:</span>
+                Mr. Benjamin V. Tuazon / Mrs. Mirasol L. Tuazon
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">BEARERS</h3>
+
+        <ul class="entourage-list">
+            <li><span class="entourage-role">Ring Bearer:</span> Ead Lucas G. Achas</li>
+            <li><span class="entourage-role">Bible Bearer:</span> Althea Sofia M. Saburnido</li>
+            <li><span class="entourage-role">Coin Bearer:</span> Luna Ysabel C. Uyan</li>
+        </ul>
+
+    </div>
+
+    <div class="entourage-group">
+
+        <h3 class="entourage-group-title">FLOWER GIRLS</h3>
+
+        <ul class="entourage-list">
+            <li>Athena Zient M. Saburnido</li>
+            <li>Thalia M. Saburnido</li>
+            <li>Luminasa C. Uyan</li>
+            <li>Aidel P. Aca-ao</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     BRIDE'S BANNER
+===================================================== -->
+
+<section class="brides-banner fade-in">
+
+    <h2 class="brides-banner-title">BRIDE'S BANNER</h2>
+
+    <div class="brides-banner-name">
+        Zia Amary A. Tolentino
+    </div>
+
+</section>
+
+<!-- =====================================================
+     ATTIRE
+===================================================== -->
+
+<section class="attire-section fade-in">
+
+    <h2 class="section-title">ATTIRE</h2>
+
+    <p class="attire-main-caption">
+        Please choose elegant attire within our romantic wedding palette.
+    </p>
+
+    <!-- PRINCIPAL SPONSORS -->
+
+    <div class="attire-group">
+
+        <h3 class="attire-group-title">PRINCIPAL SPONSORS</h3>
+
+        <img
+            src="./principal-sponsors.png"
+            alt="Principal Sponsors Attire"
+            class="attire-image"
+        >
+
+        <p class="principal-attire-note">
+            <strong>Gentlemen:</strong> Barong
+            <br>
+            <strong>Ladies:</strong> Long Gown
+        </p>
+
+        <div class="color-palette principal-palette">
+            <span class="color-circle" title="Cream"></span>
+            <span class="color-circle" title="Light Cream"></span>
+            <span class="color-circle" title="Pale Ivory"></span>
+            <span class="color-circle" title="Ivory White"></span>
+            <span class="color-circle" title="Warm Beige"></span>
+        </div>
+
+    </div>
+
+    <!-- ENTOURAGE -->
+
+    <div class="attire-group">
+
+        <h3 class="attire-group-title">ENTOURAGE</h3>
+
+        <img
+            src="./entourage.png"
+            alt="Entourage Attire"
+            class="attire-image"
+        >
+
+        <div class="color-palette entourage-palette">
+            <span class="color-circle" title="Lavender"></span>
+            <span class="color-circle" title="Lilac"></span>
+            <span class="color-circle" title="Blush Pink"></span>
+            <span class="color-circle" title="Powder Blue"></span>
+        </div>
+
+    </div>
+
+    <!-- GUESTS -->
+
+    <div class="attire-group">
+
+        <h3 class="attire-group-title">GUESTS</h3>
+
+        <img
+            src="./guests.png"
+            alt="Guest Attire"
+            class="attire-image"
+        >
+
+        <div class="color-palette guest-palette">
+            <span class="color-circle" title="Lavender"></span>
+            <span class="color-circle" title="Lilac"></span>
+            <span class="color-circle" title="Blush Pink"></span>
+            <span class="color-circle" title="Powder Blue"></span>
+            <span class="color-circle" title="Ivory"></span>
+        </div>
+
+    </div>
+
+    <div class="attire-notice">
+        <strong>Strictly No Wearing Of The Following:</strong>
+        <br>
+        White and black dresses, slippers, and shorts.
+    </div>
+
+</section>
+
+<!-- =====================================================
+     IN LIEU OF GIFTS
+===================================================== -->
+
+<section class="gifts-section fade-in">
+
+    <img
+        src="./gifts.png"
+        alt="Wedding Gifts"
+        class="gifts-illustration"
+    >
+
+    <h2 class="gifts-title">IN LIEU OF GIFTS</h2>
+
+    <p class="gifts-text">
+        Your presence at our wedding is the greatest gift
+        we could ask for. If you wish to bless us further,
+        a monetary gift will be sincerely appreciated as we
+        begin this new chapter together.
+    </p>
+
+    <div class="bank-qr-container">
+
+        <div class="bank-qr-card">
+            <img
+                src="./bank-qr1.png"
+                alt="First bank payment QR code"
+                loading="lazy"
+            >
+            <p class="bank-qr-label">
+                Scan to send your gift
+            </p>
+        </div>
+
+        <div class="bank-qr-card">
+            <img
+                src="./bank-qr2.png"
+                alt="Second bank payment QR code"
+                loading="lazy"
+            >
+            <p class="bank-qr-label">
+                Scan to send your gift
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     OH SNAP
+===================================================== -->
+
+<section class="oh-snap-section fade-in">
+
+    <img src="./camera.png" alt="Wedding Camera">
+
+    <h2 class="oh-snap-title">OH SNAP!</h2>
+
+    <p class="hashtag-instruction">
+        PLEASE USE OUR OFFICIAL WEDDING HASHTAG
+    </p>
+
+    <div class="hashtag">
+        #JELAIfoundherJHUNuineLOVE
+    </div>
+
+</section>
+
+<!-- =====================================================
+     BACK TO INVITATION PAGE
+===================================================== -->
+
+<div class="back-area fade-in">
+
+    <a href="./inside.html" class="back-button">
+        BACK
+    </a>
+
+</div>
+
+</div>
+</div>
+
+<script>
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+const musicButton = document.getElementById("musicButton");
+const weddingMusic = document.getElementById("weddingMusic");
+
+let musicPlaying = false;
+
+musicButton.addEventListener("click", function () {
+    if (musicPlaying) {
+        weddingMusic.pause();
+        musicButton.textContent = "♪";
+        musicPlaying = false;
+    } else {
+        weddingMusic.play()
+            .then(function () {
+                musicButton.textContent = "❚❚";
+                musicPlaying = true;
+            })
+            .catch(function () {
+                musicButton.textContent = "♪";
+            });
+    }
+});
+
+weddingMusic.addEventListener("pause", function () {
+    musicPlaying = false;
+    musicButton.textContent = "♪";
+});
+
+/* =====================================================
+   COUNTDOWN — PHILIPPINE TIME
+===================================================== */
+
+const weddingDate =
+    new Date("2026-12-28T15:00:00+08:00").getTime();
+
+function updateCountdown() {
+    const now = Date.now();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+        return;
+    }
+
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) / 1000
+    );
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* =====================================================
+   FADE-IN ANIMATION
+===================================================== */
+
+const fadeElements = document.querySelectorAll(".fade-in");
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.08 }
+    );
+
+    fadeElements.forEach(function (element) {
+        observer.observe(element);
+    });
+} else {
+    fadeElements.forEach(function (element) {
+        element.classList.add("visible");
+    });
+}
+</script>
+
+</body>
+</html>
+```
