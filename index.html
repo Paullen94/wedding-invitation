@@ -1,174 +1,359 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f3e6e7">
-<title>Angelica Mae & Marjhun — Wedding Invitation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angelica Mae & Marjhun | Wedding Invitation</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--ink:#5d355f;--plum:#70416f;--rose:#d998ad;--ivory:#fffaf7;--paper:#fbf5ef;--line:#ead5d8;--shadow:0 22px 60px rgba(75,42,58,.22)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eee2e5;color:var(--ink);font-family:Montserrat,Arial,sans-serif}button,input{font:inherit}.hidden{display:none!important}
-/* The generated flat-lay is the BASE. Nothing else replaces it. */
-.site{min-height:100svh;background-image:linear-gradient(rgba(255,249,247,.08),rgba(255,249,247,.08)),url('assets/wedding-background.png');background-size:cover;background-position:center top;background-attachment:fixed;position:relative;overflow:hidden}
-.site:before{content:"";position:fixed;inset:0;background:rgba(255,248,246,.06);pointer-events:none}
-.opening{min-height:100svh;display:grid;place-items:center;padding:24px;position:relative;z-index:10;transition:opacity .65s ease,transform .65s ease}
-.opening.hide{opacity:0;transform:scale(1.03);pointer-events:none}
-.cover-wrap{position:relative;width:min(88vw,390px);filter:drop-shadow(0 25px 35px rgba(60,37,50,.24));cursor:pointer}
-.cover-art{display:block;width:100%;height:auto;border-radius:8px}
-.cover-photo{position:absolute;left:31.5%;top:42.7%;width:48.5%;height:10.5%;object-fit:contain;object-position:center;background:#f7eee9;display:none;transform:rotate(12deg);padding:2px}
-.cover-photo.has-photo{display:block}
-.cover-upload{position:absolute;left:31%;top:52.8%;width:50%;height:8%;opacity:0;cursor:pointer;z-index:4}
-.cover-hit{position:absolute;left:26%;bottom:5%;width:55%;height:10%;border:0;background:transparent;cursor:pointer;z-index:3}
-.open-note{position:absolute;left:50%;bottom:-42px;transform:translateX(-50%);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#70416f;background:rgba(255,250,247,.84);padding:9px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 22px rgba(80,50,65,.12)}
-/* opened invitation */
-.home{min-height:100svh;padding:28px 18px 70px;position:relative;z-index:2;opacity:0;pointer-events:none;transition:opacity .6s ease}.home.show{opacity:1;pointer-events:auto}
-.home-inner{width:min(980px,100%);margin:auto;display:flex;flex-direction:column;align-items:center;gap:22px}
-.welcome-card{width:min(430px,92vw);background:rgba(255,251,248,.94);border:1px solid rgba(126,79,104,.16);box-shadow:var(--shadow);padding:28px 26px;text-align:center;border-radius:6px;backdrop-filter:blur(4px)}
-.kicker{font-size:10px;letter-spacing:.3em;text-transform:uppercase}.names{font-family:'DM Serif Display',serif;font-size:clamp(42px,10vw,68px);line-height:.9;margin:12px 0 8px;color:#5b315e}.amp{font-family:'Cormorant Garamond',serif;font-size:.65em;color:#c989a0}.date{letter-spacing:.22em;text-transform:uppercase;font-size:11px}.caption{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.3;margin:18px auto 0;max-width:360px}
-.menu{width:min(860px,100%);display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.menu-card{position:relative;border:0;padding:0;background:transparent;cursor:pointer;filter:drop-shadow(0 18px 25px rgba(65,38,52,.18));transition:transform .25s ease,filter .25s ease}.menu-card:hover{transform:translateY(-5px) rotate(-.5deg);filter:drop-shadow(0 24px 30px rgba(65,38,52,.24))}.menu-card:nth-child(2){transform:rotate(1deg)}.menu-card:nth-child(2):hover{transform:translateY(-5px) rotate(1.5deg)}.menu-card:nth-child(3){transform:rotate(-1deg)}.menu-card:nth-child(4){transform:rotate(.7deg)}.menu-card img{display:block;width:100%;height:auto;border-radius:6px}.menu-label{position:absolute;inset:auto 0 12px;text-align:center;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6a3c68;font-weight:600;pointer-events:none}
-.music{position:fixed;right:16px;bottom:16px;z-index:20;width:46px;height:46px;border:1px solid rgba(112,65,111,.25);border-radius:50%;background:rgba(255,250,247,.9);color:var(--plum);box-shadow:0 10px 25px rgba(60,35,50,.16);cursor:pointer}
-/* Modal / invitation cards */
-.modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(55,32,49,.38);backdrop-filter:blur(10px);padding:18px;overflow:auto}.modal.show{display:flex;justify-content:center;align-items:flex-start}.modal-card{position:relative;width:min(920px,100%);margin:16px auto 30px;background:var(--paper);box-shadow:0 30px 90px rgba(35,20,30,.35);border:1px solid #ead4d4;border-radius:10px;overflow:hidden}.modal-head{position:sticky;top:0;z-index:4;background:rgba(255,250,247,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:13px 16px}.modal-title{font-family:'DM Serif Display',serif;font-size:27px;color:var(--plum)}.close{border:0;background:#f0dfe4;color:var(--plum);width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}.modal-body{padding:20px}.hero-stationery{width:min(430px,100%);margin:0 auto 22px;position:relative}.hero-stationery img{display:block;width:100%;height:auto;box-shadow:0 18px 45px rgba(60,35,50,.18)}
-.photo-slot{position:absolute;display:none;background:#f8efea;overflow:hidden;border:2px solid rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(70,40,55,.12)}.photo-slot.has-photo{display:block}.photo-slot img{width:100%;height:100%;object-fit:contain!important;object-position:center;background:#f8efea;box-shadow:none!important}.replace-btn{position:absolute;z-index:3;border:0;border-radius:999px;padding:7px 11px;background:rgba(93,53,95,.92);color:white;font-size:9px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 5px 15px rgba(60,30,50,.2)}
-.story-photo{left:21.5%;top:37%;width:56%;height:28%;transform:rotate(13deg)}.prenup-photo{left:23%;top:31%;width:54%;height:31%;transform:rotate(10deg)}
-.details-intro{text-align:center;margin:0 auto 22px;max-width:650px}.details-intro h2,.story-text h2{font-family:'DM Serif Display',serif;color:var(--plum);font-size:38px;margin:4px 0}.details-intro p,.story-text p{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.45}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0}.info{background:white;border:1px solid var(--line);padding:18px;text-align:center;box-shadow:0 10px 25px rgba(80,40,55,.08)}.info h3{font-family:'DM Serif Display',serif;margin:0 0 7px;font-size:22px;color:var(--plum)}.info p{margin:3px 0;font-size:13px;line-height:1.55}.swatches{display:flex;justify-content:center;gap:9px;margin-top:10px}.sw{width:29px;height:29px;border-radius:50%;border:2px solid white;box-shadow:0 2px 8px #0002}.gallery15{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.gallery15 figure{margin:0;background:white;padding:7px;box-shadow:0 8px 22px rgba(70,35,55,.12);border:1px solid #eddfe0}.gallery15 img{display:block;width:100%;height:auto}.gallery15 figcaption{font-size:9px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:7px 2px;color:#78536f}
-.story-text{text-align:center;max-width:680px;margin:0 auto}.story-photo-editor{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0 16px}.editor-btn{border:1px solid #d8b9c6;background:white;color:var(--plum);border-radius:999px;padding:10px 14px;cursor:pointer;font-size:11px}.prenup-intro{text-align:center}.prenup-intro h2{font-family:'DM Serif Display',serif;font-size:38px;margin:4px 0;color:var(--plum)}.prenup-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}.prenup-item{position:relative;background:white;border:1px solid var(--line);padding:7px;box-shadow:0 8px 20px rgba(70,35,55,.1);min-width:0}.prenup-item img{width:100%;height:180px;object-fit:contain;background:#faf3ef;display:block;cursor:zoom-in}.prenup-item img.empty{visibility:hidden}.prenup-item input{display:none}.small-edit{margin-top:6px;width:100%;border:0;background:#70416f;color:#fff;padding:8px 5px;border-radius:5px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.gallery-tools{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:20px 0}.photo-count{font-size:12px;color:#78536f;letter-spacing:.05em}.lightbox{position:fixed;inset:0;z-index:500;background:rgba(35,20,35,.94);display:none;align-items:center;justify-content:center;padding:18px}.lightbox.show{display:flex}.lightbox img{max-width:min(92vw,1100px);max-height:82vh;object-fit:contain}.lightbox-close,.lightbox-nav{position:absolute;border:0;border-radius:50%;width:44px;height:44px;background:rgba(255,255,255,.92);color:#70416f;font-size:24px;cursor:pointer}.lightbox-close{right:18px;top:18px}.lightbox-nav.prev{left:15px;top:50%}.lightbox-nav.next{right:15px;top:50%}.rsvp-box{text-align:center;padding:25px 12px}.rsvp-box h2{font-family:'DM Serif Display',serif;font-size:42px;margin:0;color:var(--plum)}.rsvp-box p{font-family:'Cormorant Garamond',serif;font-size:22px}.rsvp-btn{display:inline-block;background:var(--plum);color:white;padding:14px 24px;border-radius:999px;text-decoration:none;letter-spacing:.14em;text-transform:uppercase;font-size:11px}.note{font-size:11px;color:#8a6d80;margin-top:10px}
-.countdown{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}.time{min-width:92px;background:white;border:1px solid var(--line);padding:12px;text-align:center}.time strong{display:block;font-family:'DM Serif Display',serif;font-size:30px;color:var(--plum)}.time span{font-size:9px;letter-spacing:.12em;text-transform:uppercase}
 
-.qr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.qr-grid figure{margin:0;background:#fff;padding:8px;border:1px solid var(--line)}.qr-grid img{display:block;width:100%;height:auto;object-fit:contain}.qr-grid figcaption{text-align:center;font-size:10px;margin-top:7px;color:#78536f}.entourage-block{margin-top:28px}.entourage-block>h3{text-align:center;font-family:'DM Serif Display',serif;font-size:30px;color:#70416f}.sponsor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sponsor-grid .info{min-width:0}.sponsor-grid .info p{overflow-wrap:anywhere}
+:root{
+  --lavender:#b9a0c8;
+  --lilac:#d7c6df;
+  --blush:#efc8cf;
+  --ivory:#fbf8f2;
+  --ink:#493c48;
+  --gold:#a88762;
+  --shadow:0 22px 60px rgba(75,55,75,.16);
+}
 
-@media(max-width:700px){.menu{grid-template-columns:1fr 1fr;gap:10px}.modal{padding:7px}.modal-card{margin:4px auto 20px}.modal-body{padding:13px}.gallery15{grid-template-columns:1fr 1fr}.prenup-grid{grid-template-columns:1fr 1fr}.prenup-item img{height:150px}.info-grid{grid-template-columns:1fr}.sponsor-grid{grid-template-columns:1fr}.names{font-size:42px}.caption{font-size:19px}}
-@media(max-width:430px){.opening{padding:12px}.cover-wrap{width:min(94vw,380px)}.menu-label{font-size:8px}.gallery15{grid-template-columns:1fr}.prenup-grid{grid-template-columns:1fr 1fr}.prenup-item img{height:140px}.modal-title{font-size:23px}.welcome-card{padding:22px 17px}}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(239,200,207,.24),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(185,160,200,.20),
+      transparent 28%
+    ),
+    var(--ivory);
+  font-family:Montserrat,Arial,sans-serif;
+}
+
+button,
+a{
+  font:inherit;
+}
+
+a{
+  color:inherit;
+}
+
+section{
+  scroll-margin-top:30px;
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn{
+  position:fixed;
+  z-index:1000;
+  top:18px;
+  right:18px;
+  width:52px;
+  height:52px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#805b7c;
+  box-shadow:0 8px 25px rgba(50,30,50,.15);
+  cursor:pointer;
+  font-size:20px;
+}
+
+
+/* =========================================================
+   OPENING
+========================================================= */
+
+.opening{
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:45px 15px 55px;
+  overflow:hidden;
+
+  background-image:url("opening-background.png");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+
+.opening-inner{
+  width:min(1200px,100%);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.kicker{
+  margin:0 0 12px;
+  letter-spacing:.22em;
+  font-size:11px;
+  color:var(--gold);
+  font-weight:600;
+}
+
+.names{
+  margin:0;
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(42px,9vw,76px);
+  line-height:.95;
+  color:#725a70;
+}
+
+.names span{
+  display:block;
+  font-family:"Cormorant Garamond",serif;
+  font-size:.55em;
+  font-style:italic;
+  margin:5px 0;
+  color:var(--gold);
+}
+
+.date-top{
+  margin:14px 0 25px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:20px;
+  letter-spacing:.12em;
+}
+
+
+/* =========================================================
+   ENVELOPE
+   The complete couple photo is already inside
+   envelope-opening.png.
+
+   NO PHOTO UPLOAD.
+   NO PHOTO OVERLAY.
+========================================================= */
+
+.envelope-wrap{
+  position:relative;
+  width:min(1100px,96vw);
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  filter:drop-shadow(
+    0 28px 35px rgba(71,48,65,.20)
+  );
+}
+
+.envelope-art{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+
+/* =========================================================
+   OPEN BUTTON
+========================================================= */
+
+.open-button{
+  margin-top:18px;
+  border:1px solid rgba(168,135,98,.55);
+  background:rgba(255,255,255,.90);
+  color:#755a70;
+  padding:13px 30px;
+  border-radius:999px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:11px;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(80,55,75,.10);
+  transition:.25s ease;
+}
+
+.open-button:hover{
+  transform:translateY(-2px);
+}
+
+.scroll-note{
+  margin-top:15px;
+  font-size:10px;
+  letter-spacing:.16em;
+  color:#8d7889;
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+  .opening{
+    min-height:100svh;
+    padding:55px 5px 35px;
+  }
+
+  .names{
+    font-size:47px;
+  }
+
+  .envelope-wrap{
+    width:99vw;
+  }
+
+  .open-button{
+    margin-top:12px;
+    padding:12px 25px;
+    font-size:10px;
+  }
+
+  .scroll-note{
+    font-size:9px;
+  }
+
+  .details-grid{
+    grid-template-columns:1fr;
+  }
+
+  .countdown{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .entourage{
+    columns:1;
+  }
+
+  .prenup-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .panel{
+    padding:60px 0;
+  }
+}
+
+@media(max-width:430px){
+
+  .opening{
+    padding:45px 0 30px;
+  }
+
+  .envelope-wrap{
+    width:100vw;
+  }
+
+  .music-btn{
+    width:46px;
+    height:46px;
+    top:12px;
+    right:12px;
+  }
+}
+
 </style>
 </head>
+
+
 <body>
-<div class="site">
-  <section id="opening" class="opening">
-    <div class="cover-wrap" id="coverWrap" title="Click the invitation to open">
-      <img class="cover-art" src="assets/01-cover.png" alt="Angelica Mae and Marjhun wedding envelope invitation">
-      <img id="coverPhoto" class="cover-photo" alt="Couple photo inside the envelope">
-      <input id="coverUpload" class="cover-upload" type="file" accept="image/*" aria-label="Replace the photo inside the envelope">
-      <button id="coverHit" class="cover-hit" aria-label="Open invitation"></button>
-      <div class="open-note">Tap the photo area to replace the photo • Tap the invitation to open</div>
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<button
+  class="music-btn"
+  id="musicBtn"
+  aria-label="Play music"
+>
+  ♫
+</button>
+
+<audio
+  id="weddingMusic"
+  src="wedding-music.mp3"
+  loop
+  preload="auto"
+></audio>
+
+
+<!-- =========================================================
+     OPENING
+========================================================= -->
+
+<section
+  class="opening"
+  id="opening"
+>
+
+  <div class="opening-inner">
+
+    <p class="kicker">
+      A WEDDING INVITATION
+    </p>
+
+    <h1 class="names">
+
+      ANGELICA MAE
+
+      <span>
+        &amp;
+      </span>
+
+      MARJHUN
+
+    </h1>
+
+    <p class="date-top">
+      DECEMBER 28, 2026
+    </p>
+
+
+    <div class="envelope-wrap">
+
+      <img
+        class="envelope-art"
+        src="envelope-opening.png"
+        alt="Angelica Mae and Marjhun wedding invitation envelope"
+      >
+
     </div>
-  </section>
 
-  <main id="home" class="home">
-    <div class="home-inner">
-      <section class="welcome-card">
-        <div class="kicker">A Wedding Invitation</div>
-        <div class="names">Angelica Mae Achas <span class="amp">&amp;</span> Marjhun Mondano</div>
-        <div class="date">December 28, 2026 · 3:00 PM</div>
-        <p class="caption">With love in our hearts, we invite you to celebrate our wedding.</p>
-      </section>
-      <section class="menu" aria-label="Wedding invitation menu">
-        <button class="menu-card" data-modal="story"><img src="assets/03-our-story.png" alt="Our Story"><span class="menu-label">Open Our Story</span></button>
-        <button class="menu-card" data-modal="prenup"><img src="assets/04-our-prenup.png" alt="Our Prenup"><span class="menu-label">Open Our Prenup</span></button>
-        <button class="menu-card" data-modal="details"><img src="assets/05-the-details.png" alt="The Details"><span class="menu-label">Open Wedding Details</span></button>
-        <button class="menu-card" data-modal="rsvp"><img src="assets/13-rsvp.png" alt="RSVP"><span class="menu-label">Open RSVP</span></button>
-      </section>
-      <div class="kicker" style="margin-top:4px">Tap any card to continue</div>
+
+    <button
+      class="open-button"
+      id="openInvitation"
+    >
+      Click to Open
+    </button>
+
+
+    <div class="scroll-note">
+      WITH LOVE, ANGELICA &amp; MARJHUN
     </div>
-  </main>
-</div>
 
-<button class="music" id="musicBtn" aria-label="Toggle music">♫</button>
-<audio id="music" loop src="assets/wedding-music.mp3"></audio>
-
-<!-- STORY -->
-<div class="modal" id="modal-story"><div class="modal-card"><div class="modal-head"><div class="modal-title">Our Story</div><button class="close" data-close>×</button></div><div class="modal-body">
-  <div class="hero-stationery"><img src="assets/03-our-story.png" alt="Our Story stationery"><div id="storySlot" class="photo-slot story-photo"><img id="storyPhoto" alt="Our Story photo"></div><button class="replace-btn" style="left:38%;top:63%" data-upload="storyUpload">Replace Photo</button><input id="storyUpload" type="file" accept="image/*" hidden></div>
-  <div class="story-text"><h2>Our Story</h2><p>Every love story is made of little moments, shared laughter, unexpected turns, and a choice to keep choosing one another. This is a little piece of Angelica Mae and Marjhun's story.</p><div class="story-photo-editor"><button class="editor-btn" data-upload-click="storyUpload">Choose / Replace Photo</button></div></div>
-</div></div></div>
-
-<!-- PRENUP -->
-<div class="modal" id="modal-prenup"><div class="modal-card"><div class="modal-head"><div class="modal-title">Our Prenup</div><button class="close" data-close>×</button></div><div class="modal-body">
-  <div class="hero-stationery"><img src="assets/04-our-prenup.png" alt="Our Prenup stationery"><div id="prenupSlot" class="photo-slot prenup-photo"><img id="prenupHeroPhoto" alt="Prenup hero photo"></div><button class="replace-btn" style="left:39%;top:63%" data-upload="prenupHeroUpload">Replace Photo</button><input id="prenupHeroUpload" type="file" accept="image/*" hidden></div>
-  <div class="prenup-intro"><h2>Before the “I Do”</h2><p>Upload up to 50 photos. Images use <strong>contain</strong> so the full photo remains visible instead of being cut off.</p><div class="gallery-tools"><label class="editor-btn" for="bulkPrenupUpload">Upload Photos</label><input id="bulkPrenupUpload" type="file" accept="image/*" multiple hidden><span class="photo-count" id="photoCount">0 of 50 photos added</span></div></div>
-  <div class="prenup-grid" id="prenupGrid"></div>
-</div></div></div>
-<div class="lightbox" id="prenupLightbox" aria-label="Fullscreen prenup photo viewer" role="dialog" aria-modal="true"><button class="lightbox-close" id="lightboxClose" aria-label="Close viewer">×</button><button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous photo">‹</button><img id="lightboxImage" alt="Expanded prenup photo"><button class="lightbox-nav next" id="lightboxNext" aria-label="Next photo">›</button></div>
-
-<!-- DETAILS -->
-<div class="modal" id="modal-details"><div class="modal-card"><div class="modal-head"><div class="modal-title">The Details</div><button class="close" data-close>×</button></div><div class="modal-body">
-  <div class="details-intro"><h2>Everything You Need to Know</h2><p>Our complete invitation suite is below. The original 15 artwork pieces are shown as individual stationery images — never used as page backgrounds.</p></div>
-  <div class="countdown" id="countdown"></div>
-  <div class="info-grid">
-    <div class="info"><h3>Ceremony</h3><p><strong>3:00 PM</strong></p><p>St. John the Baptist Parish</p><p>Poblacion, Lagonglong, Misamis Oriental</p></div>
-    <div class="info"><h3>Reception</h3><p><strong>The Spot</strong></p><p>Brgy. Mandangoa, Balingasag, Misamis Oriental</p></div>
-    <div class="info"><h3>Save the Date</h3><p>Monday · December 28, 2026</p><p>3:00 PM</p></div>
-    <div class="info"><h3>RSVP</h3><p>Please confirm your attendance on or before <strong>November 25, 2026</strong>.</p></div>
-    <div class="info"><h3>Attire</h3><p>Gentlemen · Barong / Formal Attire</p><p>Ladies · Long Gown / Formal Dress</p><p>Please follow the approved principal-sponsor palette shown in the wedding reference.</p></div>
-    <div class="info"><h3>Wedding Colors</h3><p>Lavender · Lilac · Blush · Powder Blue · Ivory</p><div class="swatches"><i class="sw" style="background:#a98ac5"></i><i class="sw" style="background:#d5b4d1"></i><i class="sw" style="background:#e9a9b9"></i><i class="sw" style="background:#b8cbe0"></i><i class="sw" style="background:#f4eadb"></i></div></div>
-    <div class="info gift-info"><h3>In Lieu of Gifts</h3><p>Your presence and prayers on our special day are more than enough. If you wish to give a gift, a monetary gift will be warmly appreciated.</p><div class="qr-grid"><figure><img src="assets/bank-qr1.png" alt="Bank transfer QR code 1"><figcaption>Bank QR 1</figcaption></figure><figure><img src="assets/bank-qr2.png" alt="Bank transfer QR code 2"><figcaption>Bank QR 2</figcaption></figure></div></div>
-    <div class="info"><h3>Parish Priest</h3><p>Fr. Renerio G. Sabuga Jr. SSSJV</p></div>
   </div>
-  <section class="entourage-block">
-    <h3>Our Beloved Entourage</h3>
-    <div class="sponsor-grid">
-      <div class="info"><h3>Parents of the Bride</h3><p>Teofano Y. Achas Jr. &amp; Haidee P. Achas</p><p><em>Mother Figure:</em> Lorena L. Achas</p></div>
-      <div class="info"><h3>Parents of the Groom</h3><p>Francis C. Mondano &amp; Victoria T. Mondano</p></div>
-      <div class="info"><h3>Principal Sponsors</h3><p>Mr. Kenneth T. Capistrano / Mrs. Mila Capistrano</p><p>Mr. &amp; Mrs. Ramon G. Tabor / Mr. &amp; Mrs. Josephine Dongallo Tabor</p><p>Mr. &amp; Mrs. Fructuoso Gruta</p><p>Mr. Richard Arevalo / Mrs. Sheila Paloma Arevalo</p><p>Mr. Dodoy Roa Llagas / Mrs. Septembriena L. Llagas</p><p>Mr. Elizar Dagala / Mrs. Maribella M. Dagala</p><p>Mr. Johny Mondano / Mrs. Madel Mondano</p><p>Mr. Ernan John Zuleta / Mrs. Marciel M. Zuleta</p><p>Mr. Bonifacio Cabaron / Mrs. Josephine Cabaron</p><p>Mr. Elvic Balaba / Mrs. Prescila M. Balaba</p><p>Mr. Jose Lovino / Mrs. Irine Lovino</p></div>
-      <div class="info"><h3>Maid of Honor</h3><p>Carmela Faye C. Galela</p><h3>Best Man</h3><p>Rafael Kiamco</p></div>
-      <div class="info"><h3>Secondary Sponsors</h3><p>Cord — Mr. &amp; Mrs. Arman/Belinda P. Pene</p><p>Veil — Mrs. Recy Dagupan Mondano / Mr. Edward Erldelio Mondano</p><p>Candle — Mr. Benjamin V. Tuazon / Mrs. Mirasol L. Tuazon</p></div>
-      <div class="info"><h3>Bearers &amp; Flower Girls</h3><p>Ring — Ead Lucas G. Achas</p><p>Bible — Althea Sofia M. Saburnido</p><p>Coin — Luna Ysabel C. Uyan</p><p>Athena Zient M. Saburnido · Thalia M. Saburnido · Luminiaol C. Uyan · Aidel P. Aca-ac</p><p><strong>Bride's Banner:</strong> Zia Amary A. Tolentino</p></div>
-    </div>
-  </section>
-  <h3 style="font-family:'DM Serif Display',serif;text-align:center;font-size:30px;color:#70416f;margin:28px 0 8px">Our Invitation Suite</h3>
-  <div class="gallery15" id="gallery15"></div>
-</div></div></div>
 
-<!-- RSVP -->
-<div class="modal" id="modal-rsvp"><div class="modal-card"><div class="modal-head"><div class="modal-title">RSVP</div><button class="close" data-close>×</button></div><div class="modal-body">
-  <div class="rsvp-box"><img src="assets/13-rsvp.png" alt="RSVP card" style="width:min(430px,100%);box-shadow:0 15px 35px #4b283b22;margin-bottom:20px"><h2>We Hope You Can Join Us</h2><p>Kindly confirm your attendance by November 25, 2026.</p><a class="rsvp-btn" id="rsvpLink" href="#" target="_blank" rel="noopener">Click to RSVP</a><div class="note">Replace the RSVP_LINK in index.html with your Google Form link.</div></div>
-</div></div></div>
+</section>
 
-<script>
-const RSVP_LINK = '#';
-const assetNames = [
- ['01-cover.png','Cover'],['02-welcome.png','Welcome'],['03-our-story.png','Our Story'],['04-our-prenup.png','Our Prenup'],['05-the-details.png','The Details'],['06-ceremony.png','Ceremony'],['07-reception.png','Reception'],['08-save-the-date.png','Save the Date'],['09-dress-code.png','Dress Code'],['10-wedding-colors.png','Wedding Colors'],['11-in-lieu-of-gifts.png','In Lieu of Gifts'],['12-entourage.png','The Entourage'],['13-rsvp.png','RSVP'],['14-countdown.png','Countdown'],['15-final-message.png','Final Message']
-];
-const storage = {cover:'angelicaCoverPhoto',story:'angelicaStoryPhoto',prenupHero:'angelicaPrenupHero'};
-function readImage(key,imgEl,slotEl){const v=localStorage.getItem(key); if(v){imgEl.src=v; slotEl.classList.add('has-photo')}}
-function bindUpload(inputId,key,imgId,slotId){const input=document.getElementById(inputId);const img=document.getElementById(imgId);const slot=document.getElementById(slotId);input.addEventListener('change',()=>{const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{localStorage.setItem(key,r.result)}catch(e){}img.src=r.result;slot.classList.add('has-photo')};r.readAsDataURL(f)})}
-readImage(storage.cover,document.getElementById('coverPhoto'),document.getElementById('coverPhoto'));
-readImage(storage.story,document.getElementById('storyPhoto'),document.getElementById('storySlot'));
-readImage(storage.prenupHero,document.getElementById('prenupHeroPhoto'),document.getElementById('prenupSlot'));
-bindUpload('coverUpload',storage.cover,'coverPhoto','coverPhoto');bindUpload('storyUpload',storage.story,'storyPhoto','storySlot');bindUpload('prenupHeroUpload',storage.prenupHero,'prenupHeroPhoto','prenupSlot');
-document.querySelectorAll('[data-upload]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();document.getElementById(b.dataset.upload).click()}));
-document.querySelectorAll('[data-upload-click]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.uploadClick).click()));
-const opening=document.getElementById('opening'),home=document.getElementById('home');
-function openInvitation(){opening.classList.add('hide');setTimeout(()=>home.classList.add('show'),250);window.scrollTo(0,0)}
-document.getElementById('coverHit').addEventListener('click',openInvitation);document.getElementById('coverWrap').addEventListener('click',e=>{if(e.target===document.getElementById('coverUpload'))return;if(e.target.closest('.cover-hit'))return; if(e.target.closest('.cover-upload'))return; openInvitation()});
-function showModal(name){document.getElementById('modal-'+name).classList.add('show');document.body.style.overflow='hidden'}
-function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'));document.body.style.overflow=''}
-document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',()=>showModal(b.dataset.modal)));document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeModals));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModals()}));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModals()});
-const rsvp=document.getElementById('rsvpLink');rsvp.href=RSVP_LINK;
-// 15 assets appear as actual images in Wedding Details.
-const gallery15=document.getElementById('gallery15');assetNames.forEach(([file,label])=>{const fig=document.createElement('figure');fig.innerHTML=`<img src="assets/${file}" alt="${label}"><figcaption>${label}</figcaption>`;gallery15.appendChild(fig)});
-// Prenup gallery: up to 50 slots, local previews, count, and fullscreen viewer.
-const prenupGrid=document.getElementById('prenupGrid');
-const photoCount=document.getElementById('photoCount');
-const bulkPrenupUpload=document.getElementById('bulkPrenupUpload');
-const lightbox=document.getElementById('prenupLightbox');
-const lightboxImage=document.getElementById('lightboxImage');
-let currentLightboxIndex=0;
-const prenupImages=[];
-function updatePhotoCount(){const count=prenupImages.filter(item=>item.img.dataset.filled==='true').length;photoCount.textContent=`${count} of 50 photos added`;}
-function setPrenupPhoto(index,file){if(!file||!file.type.startsWith('image/'))return;const reader=new FileReader();reader.onload=()=>{const item=prenupImages[index];item.img.src=reader.result;item.img.dataset.filled='true';item.img.classList.remove('empty');item.btn.textContent='Replace Photo';try{localStorage.setItem('prenup'+(index+1),reader.result)}catch(e){}updatePhotoCount();};reader.readAsDataURL(file)}
-for(let i=1;i<=50;i++){const wrap=document.createElement('div');wrap.className='prenup-item';const img=document.createElement('img');img.alt='Prenup photo '+String(i).padStart(2,'0');const saved=localStorage.getItem('prenup'+i);if(saved){img.src=saved;img.dataset.filled='true'}else{img.classList.add('empty');img.dataset.filled='false';img.removeAttribute('src')};const inp=document.createElement('input');inp.type='file';inp.accept='image/*';const btn=document.createElement('button');btn.className='small-edit';btn.textContent=saved?'Replace Photo':'Add Photo';btn.onclick=()=>inp.click();inp.onchange=()=>setPrenupPhoto(i-1,inp.files[0]);img.addEventListener('click',()=>{if(img.dataset.filled==='true')openLightbox(i-1)});wrap.append(img,inp,btn);prenupGrid.appendChild(wrap);prenupImages.push({img,btn})}
-function openLightbox(index){const filled=prenupImages.map((item,i)=>item.img.dataset.filled==='true'?i:-1).filter(i=>i>=0);if(!filled.length)return;currentLightboxIndex=index;if(!filled.includes(index))currentLightboxIndex=filled[0];lightbox.dataset.filledIndices=filled.join(',');showLightboxImage();lightbox.classList.add('show');document.body.style.overflow='hidden'}
-function showLightboxImage(){const filled=(lightbox.dataset.filledIndices||'').split(',').filter(Boolean).map(Number);if(!filled.length)return;const actual=filled.includes(currentLightboxIndex)?currentLightboxIndex:filled[0];currentLightboxIndex=actual;lightboxImage.src=prenupImages[actual].img.src;lightboxImage.alt='Prenup photo '+(actual+1)+' of 50'}
-function moveLightbox(direction){const filled=(lightbox.dataset.filledIndices||'').split(',').filter(Boolean).map(Number);if(!filled.length)return;let pos=filled.indexOf(currentLightboxIndex);pos=(pos+direction+filled.length)%filled.length;currentLightboxIndex=filled[pos];showLightboxImage()}
-document.getElementById('lightboxClose').onclick=()=>{lightbox.classList.remove('show');document.body.style.overflow=''};document.getElementById('lightboxPrev').onclick=()=>moveLightbox(-1);document.getElementById('lightboxNext').onclick=()=>moveLightbox(1);lightbox.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('show');document.body.style.overflow=''}});document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('show'))return;if(e.key==='Escape'){lightbox.classList.remove('show');document.body.style.overflow=''}if(e.key==='ArrowLeft')moveLightbox(-1);if(e.key==='ArrowRight')moveLightbox(1)});
-bulkPrenupUpload.addEventListener('change',()=>{const files=[...bulkPrenupUpload.files].filter(file=>file.type.startsWith('image/'));let next=prenupImages.findIndex(item=>item.img.dataset.filled!=='true');if(next<0){alert('All 50 photo slots are filled. Replace a photo or remove a saved photo from this browser to add more.');bulkPrenupUpload.value='';return}files.forEach(file=>{if(next<0||next>=50)return;setPrenupPhoto(next,file);next=prenupImages.findIndex((item,index)=>index>next&&item.img.dataset.filled!=='true')});bulkPrenupUpload.value='';});updatePhotoCount();
-// Countdown
-const target=new Date('2026-12-28T15:00:00+08:00').getTime();function tick(){const d=Math.max(0,target-Date.now());const days=Math.floor(d/86400000);const hrs=Math.floor(d/3600000)%24;const mins=Math.floor(d/60000)%60;const secs=Math.floor(d/1000)%60;document.getElementById('countdown').innerHTML=[[''+days,'Days'],[String(hrs).padStart(2,'0'),'Hours'],[String(mins).padStart(2,'0'),'Minutes'],[String(secs).padStart(2,'0'),'Seconds']].map(x=>`<div class="time"><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join('')}tick();setInterval(tick,1000);
-// Optional music
-const audio=document.getElementById('music');document.getElementById('musicBtn').onclick=async()=>{try{if(audio.paused){await audio.play()}else audio.pause()}catch(e){alert('Add assets/wedding-music.mp3 to enable music.')}};
-</script>
-</body>
-</html>
