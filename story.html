@@ -2,767 +2,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff7f2">
-  <title>Our Story | Jelai &amp; Jhun</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --plum: #512853;
-      --ink: #39283e;
-      --lavender: #79518e;
-      --blush: #bd547a;
-      --ivory: #fffaf3;
-      --paper: #fffdf9;
-      --line: #dfc7df;
-      --shadow: 0 12px 32px rgba(63,35,66,.15);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.7;
-      background: var(--ivory);
-    }
-
-    .page-background {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background-color: #fff7f2;
-      background-image: url("./story-background.png");
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .page {
-      width: min(1180px, 100%);
-      margin: auto;
-      padding: 22px 24px 45px;
-    }
-
-    /* NAVIGATION */
-    .top-navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .nav-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 10px 18px;
-      border: 1px solid #c9a9ce;
-      border-radius: 999px;
-      background: #fffdf9;
-      color: var(--plum);
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      box-shadow: 0 3px 10px rgba(63,35,66,.08);
-      transition: background .2s ease, color .2s ease;
-    }
-
-    .nav-button:hover {
-      background: var(--plum);
-      color: white;
-    }
-
-    .nav-button.primary {
-      background: var(--plum);
-      color: white;
-      border-color: var(--plum);
-    }
-
-    .nav-button.primary:hover {
-      background: #3c1b40;
-    }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 28px 14px 30px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 4px 9px;
-      color: #67416f;
-      background: rgba(255,250,243,.94);
-      border-radius: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .19em;
-      text-transform: uppercase;
-    }
-
-    h1, h2 {
-      font-family: 'DM Serif Display', serif;
-      font-weight: 400;
-    }
-
-    .hero h1 {
-      color: var(--plum);
-      font-size: clamp(44px,8vw,78px);
-      line-height: 1.12;
-      margin: 12px 0 5px;
-      text-shadow: 0 2px 0 rgba(255,250,243,.9);
-    }
-
-    .ampersand {
-      color: var(--blush);
-      font-family: 'Great Vibes', cursive;
-    }
-
-    .script-heading {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(37px,5vw,52px);
-      font-weight: 600;
-      color: #70427e;
-      line-height: 1.3;
-      margin: 0;
-      text-shadow: 0 1px 0 rgba(255,250,243,.95);
-    }
-
-    .hero-date {
-      display: inline-block;
-      margin-top: 17px;
-      padding: 5px 12px;
-      color: #58375e;
-      background: rgba(255,250,243,.94);
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .hero-intro {
-      max-width: 720px;
-      margin: 18px auto 0;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: rgba(255,250,243,.95);
-      color: #422c47;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(23px,3vw,29px);
-      font-weight: 600;
-      line-height: 1.55;
-    }
-
-    /* WATERCOLOR ROSE DIVIDER */
-    .rose-divider {
-      display: block;
-      width: min(340px,75%);
-      height: auto;
-      margin: 18px auto 25px;
-      object-fit: contain;
-      background: transparent;
-    }
-
-    .rose-divider.large {
-      width: min(410px,86%);
-      margin: 18px auto 24px;
-    }
-
-    /* STORY TEXT */
-    .section {
-      padding: 24px 0 30px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin: 0 auto 23px;
-      padding: 0 10px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(32px,5vw,46px);
-      line-height: 1.2;
-      color: var(--plum);
-      font-weight: 600;
-      margin: 9px 0;
-      text-shadow: 0 1px 0 rgba(255,250,243,.9);
-    }
-
-    .section-heading p {
-      max-width: 700px;
-      margin: 8px auto 0;
-      padding: 7px 13px;
-      border-radius: 7px;
-      background: rgba(255,250,243,.95);
-      color: #422c47;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .story-card {
-      position: relative;
-      padding: clamp(22px,5vw,48px);
-      background: rgba(255,253,249,.98);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      margin-bottom: 28px;
-    }
-
-    .story-card::before {
-      content: "♡";
-      position: absolute;
-      right: 16px;
-      top: 5px;
-      color: #b47caf;
-      font-size: 25px;
-    }
-
-    .story-copy {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(21px,2.6vw,25px);
-      font-weight: 600;
-      line-height: 1.7;
-      color: #39283e;
-    }
-
-    .story-copy p {
-      margin: 0 0 23px;
-    }
-
-    .story-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* TWO PHOTOS PER ROW */
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      align-items: start;
-      gap: 30px;
-      width: 100%;
-      margin: 32px auto 45px;
-    }
-
-    .polaroid {
-      min-width: 0;
-      padding: 12px 12px 30px;
-      background: #fffdf9;
-      border: 1px solid #e7d6e6;
-      box-shadow: 0 12px 28px rgba(63,35,66,.16);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .polaroid:nth-child(4n + 1) {
-      transform: rotate(-.5deg);
-    }
-
-    .polaroid:nth-child(4n + 2) {
-      transform: rotate(.5deg);
-    }
-
-    .polaroid:nth-child(4n + 3) {
-      transform: rotate(.4deg);
-    }
-
-    .polaroid:nth-child(4n) {
-      transform: rotate(-.4deg);
-    }
-
-    .polaroid:hover {
-      transform: translateY(-4px) rotate(0);
-      box-shadow: 0 17px 34px rgba(63,35,66,.2);
-    }
-
-    /*
-      NO CROPPING:
-      The photo slot keeps a consistent shape, but the entire original
-      image is shown inside it. Portrait images will have side space
-      instead of losing the faces or other important details.
-    */
-    .polaroid-photo {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #fffaf5;
-      border: 1px solid #eee1eb;
-    }
-
-    .polaroid-photo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
-    }
-
-    /* SCRIPTURE */
-    .verse {
-      text-align: center;
-      padding: 26px 18px;
-      margin: 28px 0;
-      background: linear-gradient(
-        110deg,
-        rgba(246,236,249,.98),
-        rgba(255,239,243,.98),
-        rgba(237,242,250,.98)
-      );
-      border-top: 1px solid #d8c0dc;
-      border-bottom: 1px solid #d8c0dc;
-      color: var(--plum);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(23px,3vw,29px);
-      font-weight: 600;
-      font-style: italic;
-      line-height: 1.5;
-    }
-
-    .verse span {
-      display: block;
-      margin-top: 7px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      font-style: normal;
-      letter-spacing: .12em;
-    }
-
-    /* CLOSING */
-    .closing {
-      text-align: center;
-      padding: 30px 10px 15px;
-    }
-
-    .closing .script-heading {
-      font-size: clamp(37px,6vw,55px);
-      color: var(--plum);
-    }
-
-    .closing p {
-      max-width: 700px;
-      margin: 10px auto 24px;
-      padding: 12px 17px;
-      border-radius: 8px;
-      background: rgba(255,250,243,.95);
-      color: #39283e;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-
-    .bottom-navigation {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .footer {
-      text-align: center;
-      color: #58375e;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      padding-top: 20px;
-      text-shadow: 0 1px 0 rgba(255,250,243,.95);
-    }
-
-    /* MOBILE */
-    @media (max-width:650px) {
-      .page {
-        padding: 13px 12px 32px;
-      }
-
-      .photo-gallery {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-        gap: 14px;
-        margin: 22px auto 32px;
-      }
-
-      .polaroid {
-        padding: 7px 7px 19px;
-      }
-
-      .polaroid:nth-child(n) {
-        transform: none;
-      }
-
-      .polaroid:hover {
-        transform: translateY(-3px);
-      }
-
-      /* Keep the full image visible on small screens too. */
-      .polaroid-photo {
-        aspect-ratio: 3 / 4;
-      }
-
-      .top-navigation {
-        align-items: stretch;
-      }
-
-      .nav-button {
-        padding: 10px;
-        font-size: 9px;
-        letter-spacing: .02em;
-      }
-
-      .hero {
-        padding: 23px 4px 28px;
-      }
-
-      .hero-intro {
-        padding: 11px 12px;
-      }
-
-      .story-card {
-        padding: 23px 19px;
-      }
-
-      .story-copy {
-        font-size: 21px;
-      }
-
-      .section {
-        padding: 21px 0;
-      }
-
-      .section-heading p {
-        font-size: 21px;
-      }
-
-      .rose-divider {
-        width: min(290px,80%);
-      }
-
-      .rose-divider.large {
-        width: 92%;
-      }
-
-      .closing p {
-        font-size: 22px;
-      }
-    }
-
-    @media (max-width:370px) {
-      .photo-gallery {
-        gap: 10px;
-      }
-
-      .polaroid {
-        padding: 5px 5px 15px;
-      }
-
-      .top-navigation .nav-button {
-        font-size: 8px;
-      }
-
-      .hero-date {
-        font-size: 9px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .polaroid {
-        transition: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Story | Jelai &amp; Jhun</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --plum: #512853;
+  --ink: #39283e;
+  --lavender: #79518e;
+  --blush: #bd547a;
+  --ivory: #fffaf3;
+  --paper: #fffdf9;
+  --line: #dfc7df;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.7;
+  background: var(--ivory);
+}
+
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #fff7f2 url("./story-background.png") center center / cover no-repeat;
+}
+
+.page {
+  width: min(1180px, 100%);
+  margin: auto;
+  padding: 20px 24px 45px;
+}
+
+/* NAVIGATION */
+.top-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 17px;
+  border: 1px solid #c9a9ce;
+  border-radius: 30px;
+  background: #fffdf9;
+  color: var(--plum);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.nav-button.primary {
+  background: var(--plum);
+  color: white;
+}
+
+/* HEADER */
+.hero {
+  text-align: center;
+  padding: 25px 12px 30px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255,250,243,.96);
+  color: #67416f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 12px 0 0;
+  color: var(--plum);
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(43px, 8vw, 78px);
+  line-height: 1.15;
+}
+
+.ampersand {
+  color: var(--blush);
+  font-family: 'Great Vibes', cursive;
+}
+
+.script-heading {
+  margin: 0;
+  color: #70427e;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(37px, 5vw, 53px);
+  line-height: 1.4;
+}
+
+.hero-date {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255,250,243,.96);
+  color: #58375e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.hero-intro,
+.section-heading p,
+.closing p {
+  background: rgba(255,250,243,.96);
+  color: #422c47;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 600;
+  line-height: 1.55;
+  border-radius: 8px;
+}
+
+.hero-intro {
+  max-width: 720px;
+  margin: 20px auto 0;
+  padding: 12px 18px;
+}
+
+/* ROSE DIVIDERS */
+.rose-divider {
+  display: block;
+  width: min(330px, 78%);
+  height: auto;
+  margin: 22px auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+.rose-divider.large {
+  width: min(400px, 90%);
+}
+
+/* STORY SECTIONS */
+.section {
+  padding: 24px 0 30px;
+}
+
+.section-heading {
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 10px 0;
+  color: var(--plum);
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 5vw, 45px);
+  line-height: 1.2;
+}
+
+.section-heading p {
+  max-width: 700px;
+  margin: 10px auto 0;
+  padding: 10px 14px;
+}
+
+.story-card {
+  position: relative;
+  margin-bottom: 28px;
+  padding: clamp(22px, 5vw, 45px);
+  border: 1px solid var(--line);
+  background: rgba(255,253,249,.98);
+  box-shadow: 0 12px 32px rgba(63,35,66,.13);
+}
+
+.story-copy {
+  color: #39283e;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(21px, 2.6vw, 25px);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.story-copy p {
+  margin: 0 0 23px;
+}
+
+.story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* PHOTO GALLERY: TWO PHOTOS PER ROW */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 28px;
+  width: 100%;
+  margin: 30px auto 45px;
+}
+
+/* POLAROID FRAME */
+.polaroid {
+  min-width: 0;
+  padding: 12px 12px 27px;
+  border: 1px solid #e7d6e6;
+  background: #fffdf9;
+  box-shadow: 0 10px 26px rgba(63,35,66,.15);
+}
+
+/*
+  IMPORTANT:
+  Do not force a fixed aspect ratio on the photo container.
+  The image determines its own height so the complete photo
+  remains visible without cropping or stretching.
+*/
+.polaroid-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  background: #fffaf5;
+  border: 1px solid #eee1eb;
+}
+
+.polaroid-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* SCRIPTURE */
+.verse {
+  margin: 28px 0;
+  padding: 26px 18px;
+  border-top: 1px solid #d8c0dc;
+  border-bottom: 1px solid #d8c0dc;
+  background: linear-gradient(
+    110deg,
+    rgba(246,236,249,.98),
+    rgba(255,239,243,.98),
+    rgba(237,242,250,.98)
+  );
+  color: var(--plum);
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(23px, 3vw, 29px);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.verse span {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .12em;
+}
+
+/* CLOSING */
+.closing {
+  padding: 30px 10px 15px;
+  text-align: center;
+}
+
+.closing p {
+  max-width: 700px;
+  margin: 14px auto 24px;
+  padding: 13px 17px;
+}
+
+.bottom-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.footer {
+  padding-top: 20px;
+  color: #58375e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+  .page {
+    padding: 12px 12px 30px;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+    margin: 22px auto 32px;
+  }
+
+  .polaroid {
+    padding: 6px 6px 17px;
+  }
+
+  .top-navigation {
+    gap: 8px;
+  }
+
+  .nav-button {
+    min-height: 40px;
+    padding: 9px 10px;
+    font-size: 8px;
+  }
+
+  .hero {
+    padding: 20px 3px 25px;
+  }
+
+  .hero-intro {
+    padding: 10px;
+  }
+
+  .story-card {
+    padding: 21px 17px;
+  }
+
+  .story-copy {
+    font-size: 21px;
+  }
+
+  .section-heading p {
+    font-size: 21px;
+  }
+
+  .rose-divider {
+    width: 82%;
+  }
+}
+
+@media (max-width: 350px) {
+  .photo-gallery {
+    gap: 8px;
+  }
+
+  .polaroid {
+    padding: 4px 4px 13px;
+  }
+
+  .nav-button {
+    font-size: 7px;
+  }
+}
+</style>
 </head>
 
 <body>
+<div class="page-background" aria-hidden="true"></div>
 
-  <div class="page-background" aria-hidden="true"></div>
+<main class="page">
 
-  <main class="page">
+  <nav class="top-navigation" aria-label="Wedding navigation">
+    <a class="nav-button" href="index.html">← Back to Invitation</a>
+    <a class="nav-button primary" href="details.html">The Details →</a>
+  </nav>
 
-    <nav class="top-navigation" aria-label="Wedding navigation">
-      <a class="nav-button" href="inside.html">
-        ← Back to Invitation
-      </a>
+  <header class="hero">
+    <div class="eyebrow">A Journey Written by God</div>
+    <h1>Jelai <span class="ampersand">&amp;</span> Jhun</h1>
+    <p class="script-heading">Our Story</p>
 
-      <a class="nav-button primary" href="details.html">
-        The Details →
-      </a>
-    </nav>
+    <div class="hero-date">
+      December 28, 2026 · A Promise of Forever
+    </div>
 
-    <header class="hero">
-      <div class="eyebrow">A Journey Written by God</div>
+    <p class="hero-intro">
+      Some stories begin long before we understand their purpose.
+      Ours is a story of unexpected encounters, separate journeys,
+      and the beautiful timing of God.
+    </p>
 
-      <h1>Jelai <span class="ampersand">&amp;</span> Jhun</h1>
+    <img class="rose-divider" src="./rose.png" alt="">
+  </header>
 
-      <p class="script-heading">Our Story</p>
+  <section class="section">
+    <div class="section-heading">
+      <div class="eyebrow">Chapter One</div>
+      <h2>Where Our Paths First Crossed</h2>
+      <p>Sometimes, the beginning is hidden inside an ordinary day.</p>
+    </div>
 
-      <div class="hero-date">
-        December 28, 2026 · A Promise of Forever
-      </div>
-
-      <p class="hero-intro">
-        Some stories begin long before we understand their purpose.
-        Ours is a story of unexpected encounters, separate journeys,
-        and the beautiful timing of God.
-      </p>
-
-      <img class="rose-divider"
-           src="./rose.png"
-           alt=""
-           aria-hidden="true">
-    </header>
-
-    <!-- CHAPTER ONE -->
-    <section class="section">
-      <div class="section-heading">
-        <div class="eyebrow">Chapter One</div>
-        <h2>Where Our Paths First Crossed</h2>
+    <article class="story-card">
+      <div class="story-copy">
         <p>
-          Sometimes, the beginning is hidden inside an ordinary day.
+          Our story began in 2017 at St. Rita’s College of Balingasag,
+          when I arrived as a transferee student from USTP. We became
+          schoolmates and, unexpectedly, classmates in one subject—Filipino III.
+          At that time, however, we were both already in relationships,
+          and neither of us could have imagined that our paths would
+          one day lead us here.
         </p>
       </div>
+    </article>
+  </section>
 
-      <article class="story-card">
-        <div class="story-copy">
-          <p>
-            Our story began in 2017 at St. Rita’s College of Balingasag,
-            when I arrived as a transferee student from USTP. We became
-            schoolmates and, unexpectedly, classmates in one subject—Filipino III.
-            At that time, however, we were both already in relationships,
-            and neither of us could have imagined that our paths would
-            one day lead us here.
-          </p>
-        </div>
-      </article>
-    </section>
+  <!-- MEMORIES 1–10 -->
+  <section class="section" aria-label="Our first collection of memories">
+    <div class="photo-gallery">
 
-    <!-- PHOTOS 1–10 -->
-    <section class="section" aria-label="Our first collection of memories">
-      <div class="photo-gallery">
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%201.jpg" alt="Our memory 1" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%202.jpg" alt="Our memory 2" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%203.jpg" alt="Our memory 3" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%204.jpg" alt="Our memory 4" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%205.jpg" alt="Our memory 5" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%206.jpg" alt="Our memory 6" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%207.jpg" alt="Our memory 7" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%208.jpg" alt="Our memory 8" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%209.jpg" alt="Our memory 9" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2010.jpg" alt="Our memory 10" loading="lazy"></div></div>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%201.jpg" alt="Jelai and Jhun memory 1" loading="lazy">
-        </div></div>
+    </div>
+  </section>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%202.jpg" alt="Jelai and Jhun memory 2" loading="lazy">
-        </div></div>
+  <section class="section">
+    <div class="section-heading">
+      <div class="eyebrow">Chapter Two</div>
+      <h2>Separate Paths, One Beautiful Plan</h2>
+      <p>Even when life takes us in different directions, God never loses sight of the way.</p>
+    </div>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%203.jpg" alt="Jelai and Jhun memory 3" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%204.jpg" alt="Jelai and Jhun memory 4" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%205.jpg" alt="Jelai and Jhun memory 5" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%206.jpg" alt="Jelai and Jhun memory 6" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%207.jpg" alt="Jelai and Jhun memory 7" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%208.jpg" alt="Jelai and Jhun memory 8" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%209.jpg" alt="Jelai and Jhun memory 9" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2010.jpg" alt="Jelai and Jhun memory 10" loading="lazy">
-        </div></div>
-
-      </div>
-    </section>
-
-    <!-- CHAPTER TWO -->
-    <section class="section">
-      <div class="section-heading">
-        <div class="eyebrow">Chapter Two</div>
-        <h2>Separate Paths, One Beautiful Plan</h2>
+    <article class="story-card">
+      <div class="story-copy">
         <p>
-          Even when life takes us in different directions,
-          God never loses sight of the way.
+          Years passed, and life took us in different directions. By 2024,
+          we had both become professionals, each faithfully pursuing a
+          different calling. You became a police officer, dedicating
+          yourself to protecting and serving the community. I was still
+          serving in DepEd while continuing to pursue my application to
+          transfer to the Bureau of Fire Protection. We were building
+          our own lives, unaware that God was quietly preparing our
+          paths to meet again.
         </p>
       </div>
+    </article>
+  </section>
 
-      <article class="story-card">
-        <div class="story-copy">
-          <p>
-            Years passed, and life took us in different directions.
-            By 2024, we had both become professionals, each faithfully
-            pursuing a different calling. You became a police officer,
-            dedicating yourself to protecting and serving the community.
-            I was still serving in DepEd while continuing to pursue my
-            application to transfer to the Bureau of Fire Protection.
-            We were building our own lives, unaware that God was quietly
-            preparing our paths to meet again.
-          </p>
-        </div>
-      </article>
-    </section>
+  <!-- MEMORIES 11–20 -->
+  <section class="section" aria-label="Our second collection of memories">
+    <div class="photo-gallery">
 
-    <!-- PHOTOS 11–20 -->
-    <section class="section" aria-label="Our second collection of memories">
-      <div class="photo-gallery">
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2011.jpg" alt="Our memory 11" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2012.jpg" alt="Our memory 12" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2013.jpg" alt="Our memory 13" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2014.jpg" alt="Our memory 14" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2015.jpg" alt="Our memory 15" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2016.jpg" alt="Our memory 16" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2017.jpg" alt="Our memory 17" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2018.jpg" alt="Our memory 18" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2019.jpg" alt="Our memory 19" loading="lazy"></div></div>
+      <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2020.jpg" alt="Our memory 20" loading="lazy"></div></div>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2011.jpg" alt="Jelai and Jhun memory 11" loading="lazy">
-        </div></div>
+    </div>
+  </section>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2012.jpg" alt="Jelai and Jhun memory 12" loading="lazy">
-        </div></div>
+  <section class="verse">
+    “He has made everything beautiful in its time.”
+    <span>ECCLESIASTES 3:11</span>
+  </section>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2013.jpg" alt="Jelai and Jhun memory 13" loading="lazy">
-        </div></div>
+  <section class="section">
+    <div class="section-heading">
+      <div class="eyebrow">A Love Guided by Faith</div>
+      <h2>More Than Coincidence</h2>
+    </div>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2014.jpg" alt="Jelai and Jhun memory 14" loading="lazy">
-        </div></div>
+    <article class="story-card">
+      <div class="story-copy">
+        <p>
+          Looking back, we now understand that our meeting was never
+          simply a matter of luck or coincidence. When the Lord prepared
+          both of our hearts, He was writing a divine design—one that
+          we could not yet see, but that He had already planned.
+        </p>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2015.jpg" alt="Jelai and Jhun memory 15" loading="lazy">
-        </div></div>
+        <p>
+          What seemed like an unexpected encounter in college became
+          something far greater: a second chapter, a love story, and
+          a future we now pray will last in accordance with God’s will.
+          Some moments in life seem ordinary when they happen, only
+          to reveal their purpose much later.
+        </p>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2016.jpg" alt="Jelai and Jhun memory 16" loading="lazy">
-        </div></div>
+        <p>
+          And perhaps that is the beauty of God’s timing. He allowed
+          our paths to cross before we were ready, then brought us
+          together again when our hearts and lives were prepared.
+          What began as an unexpected connection in college has become
+          a love we choose, a future we look forward to, and a journey
+          we entrust completely to Him.
+        </p>
 
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2017.jpg" alt="Jelai and Jhun memory 17" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2018.jpg" alt="Jelai and Jhun memory 18" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2019.jpg" alt="Jelai and Jhun memory 19" loading="lazy">
-        </div></div>
-
-        <div class="polaroid"><div class="polaroid-photo">
-          <img src="./OUR%20STORY%20PICS/story%2020.jpg" alt="Jelai and Jhun memory 20" loading="lazy">
-        </div></div>
-
+        <p>
+          Our story is not about perfect timing—it is about divine timing.
+          And after all the years, changes, and seasons that brought us
+          here, we are grateful that God led us back to each other,
+          exactly when He knew we were ready.
+        </p>
       </div>
-    </section>
+    </article>
+  </section>
 
-    <!-- SCRIPTURE -->
-    <section class="verse">
-      “He has made everything beautiful in its time.”
-      <span>ECCLESIASTES 3:11</span>
-    </section>
+  <footer class="closing">
+    <img class="rose-divider large" src="./rose.png" alt="">
+    <h2 class="script-heading">And So, Our Forever Begins</h2>
 
-    <!-- FINAL CHAPTER -->
-    <section class="section">
-      <div class="section-heading">
-        <div class="eyebrow">A Love Guided by Faith</div>
-        <h2>More Than Coincidence</h2>
-      </div>
+    <p>
+      As we begin this new chapter, we pray that our marriage will
+      always be rooted in faith, strengthened by love, and guided
+      by the One who brought our paths together.
+    </p>
 
-      <article class="story-card">
-        <div class="story-copy">
-          <p>
-            Looking back, we now understand that our meeting was never
-            simply a matter of luck or coincidence. When the Lord prepared
-            both of our hearts, He was writing a divine design—one that
-            we could not yet see, but that He had already planned.
-          </p>
+    <div class="bottom-navigation">
+      <a class="nav-button primary" href="index.html">← Back to Invitation</a>
+      <a class="nav-button" href="details.html">View The Details →</a>
+    </div>
 
-          <p>
-            What seemed like an unexpected encounter in college became
-            something far greater: a second chapter, a love story, and
-            a future we now pray will last in accordance with God’s will.
-            Some moments in life seem ordinary when they happen, only
-            to reveal their purpose much later.
-          </p>
+    <div class="footer">Made with love · December 28, 2026</div>
+  </footer>
 
-          <p>
-            And perhaps that is the beauty of God’s timing. He allowed
-            our paths to cross before we were ready, then brought us
-            together again when our hearts and lives were prepared.
-            What began as an unexpected connection in college has become
-            a love we choose, a future we look forward to, and a journey
-            we entrust completely to Him.
-          </p>
-
-          <p>
-            Our story is not about perfect timing—it is about divine timing.
-            And after all the years, changes, and seasons that brought us
-            here, we are grateful that God led us back to each other,
-            exactly when He knew we were ready.
-          </p>
-        </div>
-      </article>
-    </section>
-
-    <!-- CLOSING -->
-    <footer class="closing">
-      <img class="rose-divider large"
-           src="./rose.png"
-           alt=""
-           aria-hidden="true">
-
-      <h2 class="script-heading">And So, Our Forever Begins</h2>
-
-      <p>
-        As we begin this new chapter, we pray that our marriage will
-        always be rooted in faith, strengthened by love, and guided
-        by the One who brought our paths together.
-      </p>
-
-      <div class="bottom-navigation">
-        <a class="nav-button primary" href="inside.html">
-          ← Back to Invitation
-        </a>
-
-        <a class="nav-button" href="details.html">
-          View The Details →
-        </a>
-      </div>
-
-      <div class="footer">
-        Made with love · December 28, 2026
-      </div>
-    </footer>
-
-  </main>
-
+</main>
 </body>
 </html>
