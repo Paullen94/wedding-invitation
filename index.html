@@ -1,277 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angelica Mae & Marjhun | Wedding Invitation</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Angelica & Marjhun | Wedding Invitation</title>
+
 
 <style>
 
-:root{
-  --lavender:#b9a0c8;
-  --lilac:#d7c6df;
-  --blush:#efc8cf;
-  --ivory:#fbf8f2;
-  --ink:#493c48;
-  --gold:#a88762;
-  --shadow:0 22px 60px rgba(75,55,75,.16);
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*{
-  box-sizing:border-box;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+body {
 
-body{
-  margin:0;
-  color:var(--ink);
-  background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(239,200,207,.24),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(185,160,200,.20),
-      transparent 28%
-    ),
-    var(--ivory);
-  font-family:Montserrat,Arial,sans-serif;
-}
+    background-image: url("opening-background.png");
 
-button,
-a{
-  font:inherit;
-}
+    background-size: cover;
 
-a{
-  color:inherit;
-}
+    background-position: center center;
 
-section{
-  scroll-margin-top:30px;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
 }
 
 
 /* =========================================================
-   MUSIC BUTTON
+   INVITATION
 ========================================================= */
 
-.music-btn{
-  position:fixed;
-  z-index:1000;
-  top:18px;
-  right:18px;
-  width:52px;
-  height:52px;
-  border:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.94);
-  color:#805b7c;
-  box-shadow:0 8px 25px rgba(50,30,50,.15);
-  cursor:pointer;
-  font-size:20px;
+.invitation {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1024px;
+
+    margin: 0 auto;
+
+    line-height: 0;
 }
 
 
 /* =========================================================
-   OPENING
+   COMPLETE FLORAL INVITATION IMAGE
 ========================================================= */
 
-.opening{
-  min-height:100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:45px 15px 55px;
-  overflow:hidden;
+.invitation-image {
 
-  background-image:url("opening-background.png");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-}
+    display: block;
 
-.opening-inner{
-  width:min(1200px,100%);
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
+    width: 100%;
 
-.kicker{
-  margin:0 0 12px;
-  letter-spacing:.22em;
-  font-size:11px;
-  color:var(--gold);
-  font-weight:600;
-}
+    height: auto;
 
-.names{
-  margin:0;
-  font-family:"DM Serif Display",serif;
-  font-size:clamp(42px,9vw,76px);
-  line-height:.95;
-  color:#725a70;
-}
+    user-select: none;
 
-.names span{
-  display:block;
-  font-family:"Cormorant Garamond",serif;
-  font-size:.55em;
-  font-style:italic;
-  margin:5px 0;
-  color:var(--gold);
-}
-
-.date-top{
-  margin:14px 0 25px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:20px;
-  letter-spacing:.12em;
+    -webkit-user-drag: none;
 }
 
 
 /* =========================================================
-   ENVELOPE
-   The complete couple photo is already inside
-   envelope-opening.png.
-
-   NO PHOTO UPLOAD.
-   NO PHOTO OVERLAY.
+   CLICKABLE BUTTONS
 ========================================================= */
 
-.envelope-wrap{
-  position:relative;
-  width:min(1100px,96vw);
-  margin:0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  filter:drop-shadow(
-    0 28px 35px rgba(71,48,65,.20)
-  );
+.invitation-button {
+
+    position: absolute;
+
+    z-index: 20;
+
+    display: block;
+
+    background: transparent;
+
+    border: 0;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
 }
 
-.envelope-art{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
+
+/* Subtle desktop hover */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .invitation-button:hover {
+
+        background: rgba(255,255,255,.10);
+
+        transform: scale(1.03);
+    }
+
 }
 
 
 /* =========================================================
-   OPEN BUTTON
+   THE DETAILS
 ========================================================= */
 
-.open-button{
-  margin-top:18px;
-  border:1px solid rgba(168,135,98,.55);
-  background:rgba(255,255,255,.90);
-  color:#755a70;
-  padding:13px 30px;
-  border-radius:999px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  font-size:11px;
-  cursor:pointer;
-  box-shadow:0 8px 24px rgba(80,55,75,.10);
-  transition:.25s ease;
+.details-button {
+
+    left: 25%;
+
+    top: 55%;
+
+    width: 31%;
+
+    height: 7%;
 }
 
-.open-button:hover{
-  transform:translateY(-2px);
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-button {
+
+    left: 62%;
+
+    top: 57%;
+
+    width: 32%;
+
+    height: 8%;
 }
 
-.scroll-note{
-  margin-top:15px;
-  font-size:10px;
-  letter-spacing:.16em;
-  color:#8d7889;
+
+/* =========================================================
+   OUR STORY
+========================================================= */
+
+.story-button {
+
+    left: 22%;
+
+    top: 86%;
+
+    width: 31%;
+
+    height: 7%;
 }
 
+
+/* =========================================================
+   PRENUP
+========================================================= */
+
+.prenup-button {
+
+    left: 58%;
+
+    top: 86%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   BACK TO OPENING
+========================================================= */
+
+.back-button {
+
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 18px;
+
+    left: 18px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(168,135,98,.55);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.94);
+
+    color: #765a76;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    line-height: 1.2;
+
+    box-shadow:
+        0 6px 20px rgba(70,45,70,.16);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.back-button:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+}
 
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width:700px){
+@media (max-width: 600px) {
 
-  .opening{
-    min-height:100svh;
-    padding:55px 5px 35px;
-  }
+    body {
 
-  .names{
-    font-size:47px;
-  }
+        background-attachment: scroll;
+    }
 
-  .envelope-wrap{
-    width:99vw;
-  }
 
-  .open-button{
-    margin-top:12px;
-    padding:12px 25px;
-    font-size:10px;
-  }
+    .back-button {
 
-  .scroll-note{
-    font-size:9px;
-  }
+        top: 12px;
 
-  .details-grid{
-    grid-template-columns:1fr;
-  }
+        left: 12px;
 
-  .countdown{
-    grid-template-columns:repeat(2,1fr);
-  }
+        padding: 9px 14px;
 
-  .entourage{
-    columns:1;
-  }
+        font-size: 9px;
+    }
 
-  .prenup-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
 
-  .panel{
-    padding:60px 0;
-  }
-}
+    .details-button {
 
-@media(max-width:430px){
+        left: 24%;
 
-  .opening{
-    padding:45px 0 30px;
-  }
+        top: 55%;
 
-  .envelope-wrap{
-    width:100vw;
-  }
+        width: 33%;
 
-  .music-btn{
-    width:46px;
-    height:46px;
-    top:12px;
-    right:12px;
-  }
+        height: 7%;
+    }
+
+
+    .rsvp-button {
+
+        left: 61%;
+
+        top: 57%;
+
+        width: 34%;
+
+        height: 8%;
+    }
+
+
+    .story-button {
+
+        left: 20%;
+
+        top: 86%;
+
+        width: 34%;
+
+        height: 7%;
+    }
+
+
+    .prenup-button {
+
+        left: 57%;
+
+        top: 86%;
+
+        width: 35%;
+
+        height: 7%;
+    }
+
 }
 
 </style>
+
 </head>
 
 
@@ -279,81 +324,82 @@ section{
 
 
 <!-- =========================================================
-     MUSIC
+     BACK TO OPENING
 ========================================================= -->
 
-<button
-  class="music-btn"
-  id="musicBtn"
-  aria-label="Play music"
+<a
+    href="index.html"
+    class="back-button"
 >
-  ♫
-</button>
-
-<audio
-  id="weddingMusic"
-  src="wedding-music.mp3"
-  loop
-  preload="auto"
-></audio>
+    ← Back to Opening
+</a>
 
 
 <!-- =========================================================
-     OPENING
+     FLORAL INVITATION
 ========================================================= -->
 
-<section
-  class="opening"
-  id="opening"
->
-
-  <div class="opening-inner">
-
-    <p class="kicker">
-      A WEDDING INVITATION
-    </p>
-
-    <h1 class="names">
-
-      ANGELICA MAE
-
-      <span>
-        &amp;
-      </span>
-
-      MARJHUN
-
-    </h1>
-
-    <p class="date-top">
-      DECEMBER 28, 2026
-    </p>
+<main class="invitation">
 
 
-    <div class="envelope-wrap">
-
-      <img
-        class="envelope-art"
-        src="envelope-opening.png"
-        alt="Angelica Mae and Marjhun wedding invitation envelope"
-      >
-
-    </div>
-
-
-    <button
-      class="open-button"
-      id="openInvitation"
+    <img
+        src="inside-envelope.png"
+        alt="Angelica and Marjhun Wedding Invitation"
+        class="invitation-image"
     >
-      Click to Open
-    </button>
 
 
-    <div class="scroll-note">
-      WITH LOVE, ANGELICA &amp; MARJHUN
-    </div>
+    <!-- =====================================================
+         THE DETAILS
+    ====================================================== -->
 
-  </div>
+    <a
+        href="details.html"
+        class="invitation-button details-button"
+        aria-label="The Details"
+        title="The Details"
+    ></a>
 
-</section>
 
+    <!-- =====================================================
+         RSVP
+    ====================================================== -->
+
+    <a
+        href="rsvp.html"
+        class="invitation-button rsvp-button"
+        aria-label="RSVP"
+        title="RSVP"
+    ></a>
+
+
+    <!-- =====================================================
+         OUR STORY
+    ====================================================== -->
+
+    <a
+        href="story.html"
+        class="invitation-button story-button"
+        aria-label="Our Story"
+        title="Our Story"
+    ></a>
+
+
+    <!-- =====================================================
+         PRENUP
+    ====================================================== -->
+
+    <a
+        href="prenup.html"
+        class="invitation-button prenup-button"
+        aria-label="Prenup"
+        title="Prenup"
+    ></a>
+
+
+</main>
+
+
+</body>
+
+</html>
