@@ -1474,3 +1474,183 @@ prenupInput.addEventListener(
 
 </body>
 </html>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jelai & Jhun | Wedding Invitation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background-image: url("opening-background.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .invitation {
+            position: relative;
+            width: 100%;
+            max-width: 1024px;
+            margin: 0 auto;
+            line-height: 0;
+        }
+
+        .invitation-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .invitation-button {
+            position: absolute;
+            z-index: 20;
+            display: block;
+            background: transparent;
+            border: 0;
+            border-radius: 40px;
+            cursor: pointer;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .invitation-button:hover {
+                background: rgba(255, 255, 255, 0.12);
+                outline: 1px solid rgba(255, 255, 255, 0.25);
+            }
+        }
+
+        /* THE DETAILS */
+        .details-button {
+            left: 26%;
+            top: 55.5%;
+            width: 26%;
+            height: 6%;
+        }
+
+        /* RSVP */
+        .rsvp-button {
+            left: 64%;
+            top: 62%;
+            width: 25%;
+            height: 6%;
+        }
+
+        /* OUR STORY */
+        .story-button {
+            left: 24%;
+            top: 85%;
+            width: 25%;
+            height: 6%;
+        }
+
+        /* PRENUP */
+        .prenup-button {
+            left: 60%;
+            top: 88%;
+            width: 22%;
+            height: 6%;
+        }
+
+        /* BACK TO OPENING */
+        .back-button {
+            position: fixed;
+            z-index: 1000;
+            top: 16px;
+            left: 16px;
+            padding: 10px 17px;
+            border: 1px solid rgba(168, 135, 98, 0.55);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #765a76;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            line-height: 1.3;
+            box-shadow: 0 5px 18px rgba(70, 45, 70, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="back-button">
+        &larr; Back to Opening
+    </a>
+
+    <main class="invitation">
+
+        <img
+            src="inside-envelope.png"
+            alt="Jelai and Jhun's floral wedding invitation"
+            class="invitation-image"
+        >
+
+        <a
+            href="details.html"
+            class="invitation-button details-button"
+            aria-label="Open The Details"
+            title="The Details"
+        ></a>
+
+        <a
+            href="rsvp.html"
+            class="invitation-button rsvp-button"
+            aria-label="Open RSVP"
+            title="RSVP"
+        ></a>
+
+        <a
+            href="story.html"
+            class="invitation-button story-button"
+            aria-label="Open Our Story"
+            title="Our Story"
+        ></a>
+
+        <a
+            href="prenup.html"
+            class="invitation-button prenup-button"
+            aria-label="Open Prenup"
+            title="Prenup"
+        ></a>
+
+    </main>
+
+</body>
+</html>
+```
