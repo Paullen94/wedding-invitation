@@ -7,6 +7,7 @@
 <title>Our Story | Jelai &amp; Jhun</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -72,11 +73,18 @@ body {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .04em;
+  transition: background .2s ease, color .2s ease;
+}
+
+.nav-button:hover {
+  background: var(--plum);
+  color: white;
 }
 
 .nav-button.primary {
   background: var(--plum);
   color: white;
+  border-color: var(--plum);
 }
 
 /* HEADER */
@@ -187,7 +195,6 @@ body {
 }
 
 .story-card {
-  position: relative;
   margin-bottom: 28px;
   padding: clamp(22px, 5vw, 45px);
   border: 1px solid var(--line);
@@ -221,7 +228,6 @@ body {
   margin: 30px auto 45px;
 }
 
-/* POLAROID FRAME */
 .polaroid {
   min-width: 0;
   padding: 12px 12px 27px;
@@ -230,17 +236,11 @@ body {
   box-shadow: 0 10px 26px rgba(63,35,66,.15);
 }
 
-/*
-  IMPORTANT:
-  Do not force a fixed aspect ratio on the photo container.
-  The image determines its own height so the complete photo
-  remains visible without cropping or stretching.
-*/
+/* Preserve the entire original photo without cropping. */
 .polaroid-photo {
   display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
   background: #fffaf5;
   border: 1px solid #eee1eb;
 }
@@ -385,9 +385,14 @@ body {
 
 <main class="page">
 
+  <!-- CORRECT DESTINATION: CLICKABLE INVITATION HUB -->
   <nav class="top-navigation" aria-label="Wedding navigation">
-    <a class="nav-button" href="index.html">← Back to Invitation</a>
-    <a class="nav-button primary" href="details.html">The Details →</a>
+    <a class="nav-button" href="inside.html">
+      ← Back to Invitation
+    </a>
+    <a class="nav-button primary" href="details.html">
+      The Details →
+    </a>
   </nav>
 
   <header class="hero">
@@ -432,7 +437,6 @@ body {
   <!-- MEMORIES 1–10 -->
   <section class="section" aria-label="Our first collection of memories">
     <div class="photo-gallery">
-
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%201.jpg" alt="Our memory 1" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%202.jpg" alt="Our memory 2" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%203.jpg" alt="Our memory 3" loading="lazy"></div></div>
@@ -443,7 +447,6 @@ body {
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%208.jpg" alt="Our memory 8" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%209.jpg" alt="Our memory 9" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2010.jpg" alt="Our memory 10" loading="lazy"></div></div>
-
     </div>
   </section>
 
@@ -473,7 +476,6 @@ body {
   <!-- MEMORIES 11–20 -->
   <section class="section" aria-label="Our second collection of memories">
     <div class="photo-gallery">
-
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2011.jpg" alt="Our memory 11" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2012.jpg" alt="Our memory 12" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2013.jpg" alt="Our memory 13" loading="lazy"></div></div>
@@ -484,7 +486,6 @@ body {
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2018.jpg" alt="Our memory 18" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2019.jpg" alt="Our memory 19" loading="lazy"></div></div>
       <div class="polaroid"><div class="polaroid-photo"><img src="./OUR%20STORY%20PICS/story%2020.jpg" alt="Our memory 20" loading="lazy"></div></div>
-
     </div>
   </section>
 
@@ -545,9 +546,14 @@ body {
       by the One who brought our paths together.
     </p>
 
+    <!-- CORRECT DESTINATION HERE TOO -->
     <div class="bottom-navigation">
-      <a class="nav-button primary" href="index.html">← Back to Invitation</a>
-      <a class="nav-button" href="details.html">View The Details →</a>
+      <a class="nav-button primary" href="inside.html">
+        ← Back to Invitation
+      </a>
+      <a class="nav-button" href="details.html">
+        View The Details →
+      </a>
     </div>
 
     <div class="footer">Made with love · December 28, 2026</div>
