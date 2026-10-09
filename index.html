@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --lavender:#b9a0c8;
   --lilac:#d7c6df;
@@ -20,51 +19,22 @@
   --gold:#a88762;
   --shadow:0 22px 60px rgba(75,55,75,.16);
 }
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--ink);
   background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(239,200,207,.24),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(185,160,200,.20),
-      transparent 28%
-    ),
+    radial-gradient(circle at 20% 10%,rgba(239,200,207,.24),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(185,160,200,.20),transparent 28%),
     var(--ivory);
   font-family:Montserrat,Arial,sans-serif;
 }
+button,a{font:inherit}
+a{color:inherit}
+section{scroll-margin-top:30px}
 
-button,
-a{
-  font:inherit;
-}
-
-a{
-  color:inherit;
-}
-
-section{
-  scroll-margin-top:30px;
-}
-
-
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
-
+/* MUSIC */
 .music-btn{
   position:fixed;
   z-index:1000;
@@ -81,11 +51,7 @@ section{
   font-size:20px;
 }
 
-
-/* =========================================================
-   OPENING
-========================================================= */
-
+/* OPENING */
 .opening{
   min-height:100svh;
   display:flex;
@@ -93,22 +59,11 @@ section{
   justify-content:center;
   padding:45px 15px 55px;
   overflow:hidden;
-
-  background-image:url("opening-background.png");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
 }
-
 .opening-inner{
-  width:min(1200px,100%);
+  width:min(760px,96vw);
   text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
 }
-
 .kicker{
   margin:0 0 12px;
   letter-spacing:.22em;
@@ -116,7 +71,6 @@ section{
   color:var(--gold);
   font-weight:600;
 }
-
 .names{
   margin:0;
   font-family:"DM Serif Display",serif;
@@ -124,7 +78,6 @@ section{
   line-height:.95;
   color:#725a70;
 }
-
 .names span{
   display:block;
   font-family:"Cormorant Garamond",serif;
@@ -133,7 +86,6 @@ section{
   margin:5px 0;
   color:var(--gold);
 }
-
 .date-top{
   margin:14px 0 25px;
   font-family:"Cormorant Garamond",serif;
@@ -141,58 +93,91 @@ section{
   letter-spacing:.12em;
 }
 
-
-/* =========================================================
-   ENVELOPE
-   The complete couple photo is already inside
-   envelope-opening.png.
-
-   NO PHOTO UPLOAD.
-   NO PHOTO OVERLAY.
-========================================================= */
-
+/*
+  IMPORTANT:
+  The envelope is one transparent PNG.
+  The photo is NOT placed over the whole envelope.
+  It is clipped to the cream insert/opening area only.
+  This keeps the lower pink pocket, bow, wax seal and flowers visible.
+*/
 .envelope-wrap{
   position:relative;
-  width:min(1100px,96vw);
+  width:min(720px,94vw);
   margin:0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  filter:drop-shadow(
-    0 28px 35px rgba(71,48,65,.20)
+  aspect-ratio:1312 / 1199;
+  filter:drop-shadow(0 28px 35px rgba(71,48,65,.20));
+}
+.envelope-art{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  z-index:3;
+  pointer-events:none;
+}
+
+/* Clickable photo window */
+.photo-hit{
+  position:absolute;
+  z-index:2;
+  left:27.1%;
+  top:18.5%;
+  width:48.8%;
+  height:35.7%;
+  transform:rotate(-8deg);
+  transform-origin:center;
+  overflow:hidden;
+  cursor:pointer;
+
+  /* matches the cream insert/opening visible in the envelope artwork */
+  clip-path:polygon(
+    2% 15%,
+    98% 0%,
+    100% 60%,
+    50% 100%,
+    4% 68%
   );
 }
-
-.envelope-art{
+.photo-hit img{
   width:100%;
-  height:auto;
+  height:100%;
   display:block;
-  object-fit:contain;
+  object-fit:cover;
+  background:transparent;
 }
-
-
-/* =========================================================
-   OPEN BUTTON
-========================================================= */
+.photo-hint{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:82%;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.82);
+  color:#71566d;
+  font-family:"Cormorant Garamond",serif;
+  font-size:19px;
+  pointer-events:none;
+  transition:.25s;
+}
+.photo-hit.has-photo .photo-hint{opacity:0}
+.photo-input{display:none}
 
 .open-button{
-  margin-top:18px;
+  margin-top:12px;
   border:1px solid rgba(168,135,98,.55);
-  background:rgba(255,255,255,.90);
+  background:rgba(255,255,255,.86);
   color:#755a70;
-  padding:13px 30px;
+  padding:13px 27px;
   border-radius:999px;
   letter-spacing:.12em;
   text-transform:uppercase;
   font-size:11px;
   cursor:pointer;
   box-shadow:0 8px 24px rgba(80,55,75,.10);
-  transition:.25s ease;
 }
-
-.open-button:hover{
-  transform:translateY(-2px);
-}
+.open-button:hover{transform:translateY(-1px)}
 
 .scroll-note{
   margin-top:15px;
@@ -201,28 +186,16 @@ section{
   color:#8d7889;
 }
 
-
-/* =========================================================
-   MAIN INVITATION
-========================================================= */
-
-.invitation{
-  display:none;
-}
-
-.invitation.show{
-  display:block;
-}
-
+/* MAIN INVITATION */
+.invitation{display:none}
+.invitation.show{display:block}
 .container{
   width:min(1080px,92vw);
   margin:auto;
 }
-
 .panel{
   padding:90px 0;
 }
-
 .card{
   background:rgba(255,255,255,.72);
   border:1px solid rgba(168,135,98,.18);
@@ -230,7 +203,6 @@ section{
   border-radius:28px;
   padding:clamp(28px,5vw,65px);
 }
-
 .eyebrow{
   text-align:center;
   color:var(--gold);
@@ -239,7 +211,6 @@ section{
   font-size:11px;
   font-weight:600;
 }
-
 h2{
   margin:10px 0 20px;
   text-align:center;
@@ -247,7 +218,6 @@ h2{
   font-size:clamp(38px,6vw,62px);
   color:#71596e;
 }
-
 .lead{
   max-width:720px;
   margin:0 auto;
@@ -257,11 +227,7 @@ h2{
   font-size:23px;
 }
 
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
+/* Countdown */
 .countdown{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -269,69 +235,51 @@ h2{
   max-width:650px;
   margin:35px auto 0;
 }
-
 .timebox{
   padding:20px 8px;
   border-radius:18px;
   background:#f7eef5;
   text-align:center;
 }
-
 .timebox strong{
   display:block;
   font-family:"DM Serif Display",serif;
   font-size:36px;
   color:#755a70;
 }
-
 .timebox span{
   font-size:9px;
   letter-spacing:.15em;
   text-transform:uppercase;
 }
 
-
-/* =========================================================
-   DETAILS
-========================================================= */
-
+/* Details */
 .details-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:20px;
   margin-top:35px;
 }
-
 .detail-card{
   padding:30px;
   border-radius:22px;
-  background:linear-gradient(
-    145deg,
-    #fff,
-    #faf1f7
-  );
+  background:linear-gradient(145deg,#fff,#faf1f7);
   border:1px solid rgba(168,135,98,.16);
   text-align:center;
 }
-
 .detail-card h3{
   margin:0 0 10px;
   font-family:"Cormorant Garamond",serif;
   font-size:30px;
   color:#775e73;
 }
-
 .detail-card p{
   margin:5px 0;
   line-height:1.65;
   font-size:14px;
 }
 
-
-/* =========================================================
-   WEDDING COLORS
-========================================================= */
-
+/* Colors */
 .swatches{
   display:flex;
   justify-content:center;
@@ -339,7 +287,6 @@ h2{
   gap:18px;
   margin-top:28px;
 }
-
 .swatch{
   width:65px;
   height:65px;
@@ -347,47 +294,32 @@ h2{
   border:4px solid white;
   box-shadow:0 4px 14px rgba(0,0,0,.10);
 }
-
 .swatch-label{
   text-align:center;
   font-size:10px;
   margin-top:6px;
 }
 
-
-/* =========================================================
-   ENTOURAGE
-========================================================= */
-
+/* Entourage */
 .entourage{
   columns:2;
   column-gap:40px;
   margin-top:30px;
 }
-
 .role{
   break-inside:avoid;
   margin:0 0 25px;
   text-align:center;
 }
-
 .role h3{
   margin:0 0 8px;
   font-family:"Cormorant Garamond",serif;
   font-size:28px;
   color:#775e73;
 }
+.role p{line-height:1.65;font-size:13px}
 
-.role p{
-  line-height:1.65;
-  font-size:13px;
-}
-
-
-/* =========================================================
-   PRENUP
-========================================================= */
-
+/* Prenup */
 .upload-row{
   display:flex;
   justify-content:center;
@@ -395,7 +327,6 @@ h2{
   flex-wrap:wrap;
   margin:25px 0;
 }
-
 .secondary-btn{
   border:1px solid rgba(168,135,98,.4);
   background:white;
@@ -405,13 +336,11 @@ h2{
   cursor:pointer;
   font-size:11px;
 }
-
 .prenup-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:10px;
 }
-
 .prenup-grid img{
   width:100%;
   aspect-ratio:1;
@@ -420,15 +349,10 @@ h2{
   display:block;
 }
 
-
-/* =========================================================
-   RSVP
-========================================================= */
-
+/* RSVP */
 .rsvp{
   text-align:center;
 }
-
 .rsvp-button{
   display:inline-block;
   margin-top:20px;
@@ -441,11 +365,7 @@ h2{
   font-size:11px;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
+/* footer */
 footer{
   padding:60px 20px 90px;
   text-align:center;
@@ -454,1203 +374,382 @@ footer{
   color:#775e73;
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:700px){
-
-  .opening{
-    min-height:100svh;
-    padding:55px 5px 35px;
-  }
-
-  .names{
-    font-size:47px;
-  }
-
-  .envelope-wrap{
-    width:99vw;
-  }
-
-  .open-button{
-    margin-top:12px;
-    padding:12px 25px;
-    font-size:10px;
-  }
-
-  .scroll-note{
-    font-size:9px;
-  }
-
-  .details-grid{
-    grid-template-columns:1fr;
-  }
-
-  .countdown{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .entourage{
-    columns:1;
-  }
-
-  .prenup-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .panel{
-    padding:60px 0;
-  }
+  .opening{padding-top:75px}
+  .names{font-size:47px}
+  .envelope-wrap{width:96vw}
+  .details-grid{grid-template-columns:1fr}
+  .countdown{grid-template-columns:repeat(2,1fr)}
+  .entourage{columns:1}
+  .prenup-grid{grid-template-columns:repeat(2,1fr)}
+  .panel{padding:60px 0}
 }
-
-@media(max-width:430px){
-
-  .opening{
-    padding:45px 0 30px;
-  }
-
-  .envelope-wrap{
-    width:100vw;
-  }
-
-  .music-btn{
-    width:46px;
-    height:46px;
-    top:12px;
-    right:12px;
-  }
-}
-
 </style>
 </head>
 
-
 <body>
 
+<button class="music-btn" id="musicBtn" aria-label="Play music">♫</button>
+<audio id="weddingMusic" src="assets/wedding-music.mp3" loop preload="auto"></audio>
 
-<!-- =========================================================
-     MUSIC
-========================================================= -->
-
-<button
-  class="music-btn"
-  id="musicBtn"
-  aria-label="Play music"
->
-  ♫
-</button>
-
-<audio
-  id="weddingMusic"
-  src="wedding-music.mp3"
-  loop
-  preload="auto"
-></audio>
-
-
-<!-- =========================================================
-     OPENING
-========================================================= -->
-
-<section
-  class="opening"
-  id="opening"
->
-
+<!-- OPENING -->
+<section class="opening" id="opening">
   <div class="opening-inner">
 
-    <p class="kicker">
-      A WEDDING INVITATION
-    </p>
+    <p class="kicker">A WEDDING INVITATION</p>
 
     <h1 class="names">
-
       ANGELICA MAE
-
-      <span>
-        &amp;
-      </span>
-
+      <span>&amp;</span>
       MARJHUN
-
     </h1>
 
-    <p class="date-top">
-      DECEMBER 28, 2026
-    </p>
-
+    <p class="date-top">DECEMBER 28, 2026</p>
 
     <div class="envelope-wrap">
 
+      <!-- Your transparent envelope artwork -->
       <img
         class="envelope-art"
-        src="envelope-opening.png"
-        alt="Angelica Mae and Marjhun wedding invitation envelope"
+        src="envelope-transparent.png"
+        alt="Floral wedding envelope"
       >
 
+      <!-- Click the photo area itself to upload a couple photo -->
+      <label class="photo-hit" id="photoHit" for="couplePhotoInput">
+        <img id="couplePhoto" alt="Couple photo">
+        <span class="photo-hint">CLICK HERE TO ADD YOUR PHOTO</span>
+      </label>
+
+      <input
+        class="photo-input"
+        id="couplePhotoInput"
+        type="file"
+        accept="image/*"
+      >
     </div>
 
-
-    <button
-      class="open-button"
-      id="openInvitation"
-    >
+    <button class="open-button" id="openInvitation">
       Click to Open
     </button>
 
-
-    <div class="scroll-note">
-      WITH LOVE, ANGELICA &amp; MARJHUN
-    </div>
-
+    <div class="scroll-note">WITH LOVE, ANGELICA &amp; MARJHUN</div>
   </div>
-
 </section>
 
+<!-- INVITATION CONTENT -->
+<main class="invitation" id="invitation">
 
+  <section class="panel">
+    <div class="container">
+      <div class="card">
+        <div class="eyebrow">December 28, 2026</div>
+        <h2>With Love in Our Hearts</h2>
+        <p class="lead">
+          With joy in our hearts and the blessing of our families,
+          we invite you to celebrate our wedding.
+        </p>
 
-<!-- =========================================================
-     INVITATION CONTENT
-========================================================= -->
-
-<main
-  class="invitation"
-  id="invitation"
->
-
-
-<!-- =======================================================
-     HOME
-======================================================== -->
-
-<section class="panel">
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        December 28, 2026
+        <div class="countdown">
+          <div class="timebox"><strong id="days">0</strong><span>Days</span></div>
+          <div class="timebox"><strong id="hours">0</strong><span>Hours</span></div>
+          <div class="timebox"><strong id="minutes">0</strong><span>Minutes</span></div>
+          <div class="timebox"><strong id="seconds">0</strong><span>Seconds</span></div>
+        </div>
       </div>
-
-      <h2>
-        With Love in Our Hearts
-      </h2>
-
-      <p class="lead">
-        With joy in our hearts and the blessing of our families,
-        we invite you to celebrate our wedding.
-      </p>
-
-
-      <div class="countdown">
-
-        <div class="timebox">
-          <strong id="days">0</strong>
-          <span>Days</span>
-        </div>
-
-        <div class="timebox">
-          <strong id="hours">0</strong>
-          <span>Hours</span>
-        </div>
-
-        <div class="timebox">
-          <strong id="minutes">0</strong>
-          <span>Minutes</span>
-        </div>
-
-        <div class="timebox">
-          <strong id="seconds">0</strong>
-          <span>Seconds</span>
-        </div>
-
-      </div>
-
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     OUR STORY
-======================================================== -->
-
-<section
-  class="panel"
-  id="our-story"
->
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        Our Story
+  <section class="panel" id="our-story">
+    <div class="container">
+      <div class="card">
+        <div class="eyebrow">Our Story</div>
+        <h2>A Chapter Written in Love</h2>
+        <p class="lead">
+          Two hearts, one beautiful journey, and a lifetime still waiting
+          to be written. We would be honored to have you with us as we
+          begin this next chapter together.
+        </p>
       </div>
-
-      <h2>
-        A Chapter Written in Love
-      </h2>
-
-      <p class="lead">
-        Two hearts, one beautiful journey, and a lifetime still waiting
-        to be written. We would be honored to have you with us as we
-        begin this next chapter together.
-      </p>
-
     </div>
+  </section>
 
-  </div>
+  <section class="panel" id="prenup">
+    <div class="container">
+      <div class="card">
+        <div class="eyebrow">Our Prenup</div>
+        <h2>Moments Before Forever</h2>
+        <p class="lead">A collection of memories from our journey together.</p>
 
-</section>
+        <div class="upload-row">
+          <label class="secondary-btn" for="prenupInput">Add Prenup Photos</label>
+          <input id="prenupInput" type="file" accept="image/*" multiple hidden>
+        </div>
 
-
-
-<!-- =======================================================
-     PRENUP
-======================================================== -->
-
-<section
-  class="panel"
-  id="prenup"
->
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        Our Prenup
+        <div class="prenup-grid" id="prenupGrid"></div>
       </div>
-
-      <h2>
-        Moments Before Forever
-      </h2>
-
-      <p class="lead">
-        A collection of memories from our journey together.
-      </p>
-
-
-      <div class="upload-row">
-
-        <label
-          class="secondary-btn"
-          for="prenupInput"
-        >
-          Add Prenup Photos
-        </label>
-
-        <input
-          id="prenupInput"
-          type="file"
-          accept="image/*"
-          multiple
-          hidden
-        >
-
-      </div>
-
-
-      <div
-        class="prenup-grid"
-        id="prenupGrid"
-      ></div>
-
     </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     THE DETAILS
-======================================================== -->
-
-<section
-  class="panel"
-  id="details"
->
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        The Details
-      </div>
-
-      <h2>
-        Our Wedding Day
-      </h2>
-
-
-      <div class="details-grid">
-
-
-        <div class="detail-card">
-
-          <h3>
-            Ceremony
-          </h3>
-
-          <p>
-            <strong>
-              St. John the Baptist Parish
-            </strong>
-          </p>
-
-          <p>
-            Poblacion, Lagonglong, 9006,
-            Misamis Oriental
-          </p>
-
-          <p>
-            December 28, 2026 · 3:00 PM
-          </p>
-
-        </div>
-
-
-        <div class="detail-card">
-
-          <h3>
-            Reception
-          </h3>
-
-          <p>
-            <strong>
-              The Spot
-            </strong>
-          </p>
-
-          <p>
-            Brgy. Mandangoa,
-            Balingasag,
-            Misamis Oriental
-          </p>
-
-        </div>
-
-
-        <div class="detail-card">
-
-          <h3>
-            Dress Code
-          </h3>
-
-          <p>
-            Gentlemen: Formal attire
-          </p>
-
-          <p>
-            Ladies: Formal / elegant attire
-          </p>
-
-          <p>
-            Please consider our wedding palette.
-          </p>
-
-        </div>
-
-
-        <div class="detail-card">
-
-          <h3>
-            In Lieu of Gifts
-          </h3>
-
-          <p>
-            Your presence is the greatest gift.
-          </p>
-
-          <p>
-            If you wish to bless us further,
-            a monetary gift will be sincerely appreciated.
-          </p>
-
-        </div>
-
-
-        <div class="detail-card">
-
-          <h3>
-            RSVP Deadline
-          </h3>
-
-          <p>
-            <strong>
-              November 25, 2026
-            </strong>
-          </p>
-
-          <p>
-            Please confirm your attendance
-            on or before the deadline.
-          </p>
-
-        </div>
-
-
-        <div class="detail-card">
-
-          <h3>
-            Parish Priest
-          </h3>
-
-          <p>
-            Fr. Renerio G. Sabuga Jr. SSSJV
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     WEDDING COLORS
-======================================================== -->
-
-<section class="panel">
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        Our Wedding Colors
-      </div>
-
-      <h2>
-        Soft &amp; Romantic
-      </h2>
-
-
-      <div class="swatches">
-
-
-        <div>
-
-          <div
-            class="swatch"
-            style="background:#b9a0c8"
-          ></div>
-
-          <div class="swatch-label">
-            Lavender
+  </section>
+
+  <section class="panel" id="details">
+    <div class="container">
+      <div class="card">
+        <div class="eyebrow">The Details</div>
+        <h2>Our Wedding Day</h2>
+
+        <div class="details-grid">
+
+          <div class="detail-card">
+            <h3>Ceremony</h3>
+            <p><strong>St. John the Baptist Parish</strong></p>
+            <p>Poblacion, Lagonglong, 9006, Misamis Oriental</p>
+            <p>December 28, 2026 · 3:00 PM</p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Reception</h3>
+            <p><strong>The Spot</strong></p>
+            <p>Brgy. Mandangoa, Balingasag, Misamis Oriental</p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Dress Code</h3>
+            <p>Gentlemen: Formal attire</p>
+            <p>Ladies: Formal / elegant attire</p>
+            <p>Please consider our wedding palette.</p>
+          </div>
+
+          <div class="detail-card">
+            <h3>In Lieu of Gifts</h3>
+            <p>Your presence is the greatest gift.</p>
+            <p>If you wish to bless us further, a monetary gift will be sincerely appreciated.</p>
+          </div>
+
+          <div class="detail-card">
+            <h3>RSVP Deadline</h3>
+            <p><strong>November 25, 2026</strong></p>
+            <p>Please confirm your attendance on or before the deadline.</p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Parish Priest</h3>
+            <p>Fr. Renerio G. Sabuga Jr. SSSJV</p>
           </div>
 
         </div>
-
-
-        <div>
-
-          <div
-            class="swatch"
-            style="background:#d7c6df"
-          ></div>
-
-          <div class="swatch-label">
-            Lilac
-          </div>
-
-        </div>
-
-
-        <div>
-
-          <div
-            class="swatch"
-            style="background:#efc8cf"
-          ></div>
-
-          <div class="swatch-label">
-            Blush Pink
-          </div>
-
-        </div>
-
-
-        <div>
-
-          <div
-            class="swatch"
-            style="background:#b9d3e5"
-          ></div>
-
-          <div class="swatch-label">
-            Powder Blue
-          </div>
-
-        </div>
-
-
-        <div>
-
-          <div
-            class="swatch"
-            style="background:#fbf8f2"
-          ></div>
-
-          <div class="swatch-label">
-            Ivory
-          </div>
-
-        </div>
-
-
       </div>
-
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     ENTOURAGE
-======================================================== -->
-
-<section
-  class="panel"
-  id="entourage"
->
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        The Entourage
+  <section class="panel">
+    <div class="container">
+      <div class="card">
+        <div class="eyebrow">Our Wedding Colors</div>
+        <h2>Soft &amp; Romantic</h2>
+        <div class="swatches">
+          <div><div class="swatch" style="background:#b9a0c8"></div><div class="swatch-label">Lavender</div></div>
+          <div><div class="swatch" style="background:#d7c6df"></div><div class="swatch-label">Lilac</div></div>
+          <div><div class="swatch" style="background:#efc8cf"></div><div class="swatch-label">Blush Pink</div></div>
+          <div><div class="swatch" style="background:#b9d3e5"></div><div class="swatch-label">Powder Blue</div></div>
+          <div><div class="swatch" style="background:#fbf8f2"></div><div class="swatch-label">Ivory</div></div>
+        </div>
       </div>
-
-      <h2>
-        Our Beloved Family &amp; Friends
-      </h2>
-
-
-      <div class="entourage">
-
-
-        <div class="role">
-
-          <h3>
-            Groom
-          </h3>
-
-          <p>
-            Marjhun T. Mondano
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Bride
-          </h3>
-
-          <p>
-            Angelica Mae P. Achas
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Parents of the Groom
-          </h3>
-
-          <p>
-            Francis C. Mondano<br>
-            Victoria T. Mondano
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Parents of the Bride
-          </h3>
-
-          <p>
-            Teofano Y. Achas Jr.<br>
-            Lorena L. Achas
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Maid of Honor
-          </h3>
-
-          <p>
-            Carmela Faye C. Galela
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Best Man
-          </h3>
-
-          <p>
-            Rafael Kiamco
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Secondary Sponsors
-          </h3>
-
-          <p>
-            Cord — Mr. &amp; Mrs. Arman/Belinda P. Pene<br>
-            Veil — Mrs. Recy Dagupan Mondano &
-            Mr. Edward Erldelio Mondano<br>
-            Candle — Mr. Benjamin V. Tuazon &
-            Mrs. Mirasol L. Tuazon
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Bearers
-          </h3>
-
-          <p>
-            Ring — Ead Lucas G. Achas<br>
-            Bible — Althea Sofia M. Saburnido<br>
-            Coin — Luna Ysabel C. Uyan
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Flower Girls
-          </h3>
-
-          <p>
-            Athena Zient M. Saburnido<br>
-            Thalia M. Saburnido<br>
-            Luminiaol C. Uyan<br>
-            Aidel P. Aca-ac
-          </p>
-
-        </div>
-
-
-        <div class="role">
-
-          <h3>
-            Bride's Banner
-          </h3>
-
-          <p>
-            Zia Amary A. Tolentino
-          </p>
-
-        </div>
-
-
-      </div>
-
     </div>
+  </section>
 
-  </div>
+  <section class="panel" id="entourage">
+    <div class="container">
+      <div class="card">
+        <div class="eyebrow">The Entourage</div>
+        <h2>Our Beloved Family &amp; Friends</h2>
 
-</section>
+        <div class="entourage">
 
+          <div class="role">
+            <h3>Groom</h3>
+            <p>Marjhun T. Mondano</p>
+          </div>
 
+          <div class="role">
+            <h3>Bride</h3>
+            <p>Angelica Mae P. Achas</p>
+          </div>
 
-<!-- =======================================================
-     RSVP
-======================================================== -->
+          <div class="role">
+            <h3>Parents of the Groom</h3>
+            <p>Francis C. Mondano<br>Victoria T. Mondano</p>
+          </div>
 
-<section
-  class="panel"
-  id="rsvp"
->
+          <div class="role">
+            <h3>Parents of the Bride</h3>
+            <p>Teofano Y. Achas Jr.<br>Lorena L. Achas</p>
+          </div>
 
-  <div class="container">
+          <div class="role">
+            <h3>Maid of Honor</h3>
+            <p>Carmela Faye C. Galela</p>
+          </div>
 
-    <div class="card rsvp">
+          <div class="role">
+            <h3>Best Man</h3>
+            <p>Rafael Kiamco</p>
+          </div>
 
-      <div class="eyebrow">
-        RSVP
+          <div class="role">
+            <h3>Secondary Sponsors</h3>
+            <p>
+              Cord — Mr. &amp; Mrs. Arman/Belinda P. Pene<br>
+              Veil — Mrs. Recy Dagupan Mondano &amp; Mr. Edward Erldelio Mondano<br>
+              Candle — Mr. Benjamin V. Tuazon &amp; Mrs. Mirasol L. Tuazon
+            </p>
+          </div>
+
+          <div class="role">
+            <h3>Bearers</h3>
+            <p>
+              Ring — Ead Lucas G. Achas<br>
+              Bible — Althea Sofia M. Saburnido<br>
+              Coin — Luna Ysabel C. Uyan
+            </p>
+          </div>
+
+          <div class="role">
+            <h3>Flower Girls</h3>
+            <p>
+              Athena Zient M. Saburnido<br>
+              Thalia M. Saburnido<br>
+              Luminiaol C. Uyan<br>
+              Aidel P. Aca-ac
+            </p>
+          </div>
+
+          <div class="role">
+            <h3>Bride's Banner</h3>
+            <p>Zia Amary A. Tolentino</p>
+          </div>
+
+        </div>
       </div>
-
-      <h2>
-        Will You Join Us?
-      </h2>
-
-      <p class="lead">
-        Kindly confirm your attendance on or before
-        <strong>November 25, 2026</strong>.
-      </p>
-
-
-      <!-- Replace # with your Google Form RSVP URL -->
-
-      <a
-        class="rsvp-button"
-        href="#"
-        target="_blank"
-        rel="noopener"
-      >
-        RSVP NOW
-      </a>
-
     </div>
+  </section>
 
-  </div>
+  <section class="panel" id="rsvp">
+    <div class="container">
+      <div class="card rsvp">
+        <div class="eyebrow">RSVP</div>
+        <h2>Will You Join Us?</h2>
+        <p class="lead">
+          Kindly confirm your attendance on or before
+          <strong>November 25, 2026</strong>.
+        </p>
 
-</section>
+        <!-- Replace # with your Google Form RSVP URL -->
+        <a class="rsvp-button" href="#" target="_blank" rel="noopener">
+          RSVP NOW
+        </a>
+      </div>
+    </div>
+  </section>
 
-
-
-<!-- =======================================================
-     FOOTER
-======================================================== -->
-
-<footer>
-
-  See you on our special day.<br>
-
-  <strong>
-    Angelica Mae &amp; Marjhun
-  </strong>
-
-</footer>
-
+  <footer>
+    See you on our special day.<br>
+    <strong>Angelica Mae &amp; Marjhun</strong>
+  </footer>
 
 </main>
 
-
-
 <script>
+/* ---------------- PHOTO UPLOAD ---------------- */
+const couplePhotoInput = document.getElementById("couplePhotoInput");
+const couplePhoto = document.getElementById("couplePhoto");
+const photoHit = document.getElementById("photoHit");
 
-/* =========================================================
-   MUSIC
-========================================================= */
+couplePhotoInput.addEventListener("change", function(){
+  const file = this.files && this.files[0];
+  if(!file) return;
 
-const music =
-  document.getElementById("weddingMusic");
+  const reader = new FileReader();
+  reader.onload = function(e){
+    couplePhoto.src = e.target.result;
+    photoHit.classList.add("has-photo");
+  };
+  reader.readAsDataURL(file);
+});
 
-const musicBtn =
-  document.getElementById("musicBtn");
+/* ---------------- MUSIC ---------------- */
+const music = document.getElementById("weddingMusic");
+const musicBtn = document.getElementById("musicBtn");
 
-
-musicBtn.addEventListener(
-  "click",
-  async () => {
-
-    if(music.paused){
-
-      try{
-        await music.play();
-      }catch(e){}
-
-    }else{
-
-      music.pause();
-
-    }
-
+musicBtn.addEventListener("click", async () => {
+  if(music.paused){
+    try{ await music.play(); }catch(e){}
+  }else{
+    music.pause();
   }
-);
+});
 
+music.addEventListener("play", () => musicBtn.textContent = "❚❚");
+music.addEventListener("pause", () => musicBtn.textContent = "♫");
 
-music.addEventListener(
-  "play",
-  () => musicBtn.textContent = "❚❚"
-);
+/* ---------------- OPEN INVITATION ---------------- */
+document.getElementById("openInvitation").addEventListener("click", async () => {
+  try{
+    await music.play();
+  }catch(e){}
 
-music.addEventListener(
-  "pause",
-  () => musicBtn.textContent = "♫"
-);
+  document.getElementById("opening").style.display = "none";
+  document.getElementById("invitation").classList.add("show");
+  window.scrollTo({top:0,behavior:"smooth"});
+});
 
-
-
-/* =========================================================
-   OPEN INVITATION
-========================================================= */
-
-document
-  .getElementById("openInvitation")
-  .addEventListener(
-    "click",
-    async () => {
-
-      try{
-        await music.play();
-      }catch(e){}
-
-      document
-        .getElementById("opening")
-        .style.display = "none";
-
-      document
-        .getElementById("invitation")
-        .classList.add("show");
-
-      window.scrollTo({
-        top:0,
-        behavior:"smooth"
-      });
-
-    }
-  );
-
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-const weddingDate =
-  new Date(
-    "2026-12-28T15:00:00+08:00"
-  ).getTime();
-
+/* ---------------- COUNTDOWN ---------------- */
+const weddingDate = new Date("2026-12-28T15:00:00+08:00").getTime();
 
 function updateCountdown(){
-
-  const now =
-    Date.now();
-
-  const distance =
-    weddingDate - now;
-
+  const now = Date.now();
+  const distance = weddingDate - now;
 
   if(distance <= 0){
-
-    document.getElementById("days")
-      .textContent = "0";
-
-    document.getElementById("hours")
-      .textContent = "0";
-
-    document.getElementById("minutes")
-      .textContent = "0";
-
-    document.getElementById("seconds")
-      .textContent = "0";
-
+    document.getElementById("days").textContent = "0";
+    document.getElementById("hours").textContent = "0";
+    document.getElementById("minutes").textContent = "0";
+    document.getElementById("seconds").textContent = "0";
     return;
   }
 
+  document.getElementById("days").textContent =
+    Math.floor(distance / 86400000);
 
-  document.getElementById("days")
-    .textContent =
-    Math.floor(
-      distance / 86400000
-    );
+  document.getElementById("hours").textContent =
+    Math.floor((distance % 86400000) / 3600000);
 
+  document.getElementById("minutes").textContent =
+    Math.floor((distance % 3600000) / 60000);
 
-  document.getElementById("hours")
-    .textContent =
-    Math.floor(
-      (distance % 86400000) /
-      3600000
-    );
-
-
-  document.getElementById("minutes")
-    .textContent =
-    Math.floor(
-      (distance % 3600000) /
-      60000
-    );
-
-
-  document.getElementById("seconds")
-    .textContent =
-    Math.floor(
-      (distance % 60000) /
-      1000
-    );
-
+  document.getElementById("seconds").textContent =
+    Math.floor((distance % 60000) / 1000);
 }
 
-
 updateCountdown();
+setInterval(updateCountdown,1000);
 
-setInterval(
-  updateCountdown,
-  1000
-);
+/* ---------------- PRENUP UPLOAD ---------------- */
+const prenupInput = document.getElementById("prenupInput");
+const prenupGrid = document.getElementById("prenupGrid");
 
-
-
-/* =========================================================
-   PRENUP PHOTO UPLOAD
-========================================================= */
-
-const prenupInput =
-  document.getElementById("prenupInput");
-
-const prenupGrid =
-  document.getElementById("prenupGrid");
-
-
-prenupInput.addEventListener(
-  "change",
-  function(){
-
-    [...this.files].forEach(
-      file => {
-
-        const reader =
-          new FileReader();
-
-
-        reader.onload =
-          e => {
-
-            const img =
-              document.createElement("img");
-
-            img.src =
-              e.target.result;
-
-            img.alt =
-              "Prenup photo";
-
-            prenupGrid
-              .appendChild(img);
-
-          };
-
-
-        reader.readAsDataURL(file);
-
-      }
-    );
-
-  }
-);
-
+prenupInput.addEventListener("change", function(){
+  [...this.files].forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = e=>{
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.alt = "Prenup photo";
+      prenupGrid.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+});
 </script>
 
 </body>
 </html>
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Jelai & Jhun | Wedding Invitation</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-        }
-
-        body {
-            background-image: url("opening-background.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
-
-        .invitation {
-            position: relative;
-            width: 100%;
-            max-width: 1024px;
-            margin: 0 auto;
-            line-height: 0;
-        }
-
-        .invitation-image {
-            display: block;
-            width: 100%;
-            height: auto;
-            user-select: none;
-            -webkit-user-drag: none;
-        }
-
-        .invitation-button {
-            position: absolute;
-            z-index: 20;
-            display: block;
-            background: transparent;
-            border: 0;
-            border-radius: 40px;
-            cursor: pointer;
-            text-decoration: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        @media (hover: hover) and (pointer: fine) {
-            .invitation-button:hover {
-                background: rgba(255, 255, 255, 0.12);
-                outline: 1px solid rgba(255, 255, 255, 0.25);
-            }
-        }
-
-        /* THE DETAILS */
-        .details-button {
-            left: 26%;
-            top: 55.5%;
-            width: 26%;
-            height: 6%;
-        }
-
-        /* RSVP */
-        .rsvp-button {
-            left: 64%;
-            top: 62%;
-            width: 25%;
-            height: 6%;
-        }
-
-        /* OUR STORY */
-        .story-button {
-            left: 24%;
-            top: 85%;
-            width: 25%;
-            height: 6%;
-        }
-
-        /* PRENUP */
-        .prenup-button {
-            left: 60%;
-            top: 88%;
-            width: 22%;
-            height: 6%;
-        }
-
-        /* BACK TO OPENING */
-        .back-button {
-            position: fixed;
-            z-index: 1000;
-            top: 16px;
-            left: 16px;
-            padding: 10px 17px;
-            border: 1px solid rgba(168, 135, 98, 0.55);
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.95);
-            color: #765a76;
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            text-decoration: none;
-            line-height: 1.3;
-            box-shadow: 0 5px 18px rgba(70, 45, 70, 0.15);
-        }
-
-        @media (max-width: 600px) {
-            body {
-                background-attachment: scroll;
-            }
-
-            .back-button {
-                top: 10px;
-                left: 10px;
-                padding: 8px 12px;
-                font-size: 9px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <a href="index.html" class="back-button">
-        &larr; Back to Opening
-    </a>
-
-    <main class="invitation">
-
-        <img
-            src="inside-envelope.png"
-            alt="Jelai and Jhun's floral wedding invitation"
-            class="invitation-image"
-        >
-
-        <a
-            href="details.html"
-            class="invitation-button details-button"
-            aria-label="Open The Details"
-            title="The Details"
-        ></a>
-
-        <a
-            href="rsvp.html"
-            class="invitation-button rsvp-button"
-            aria-label="Open RSVP"
-            title="RSVP"
-        ></a>
-
-        <a
-            href="story.html"
-            class="invitation-button story-button"
-            aria-label="Open Our Story"
-            title="Our Story"
-        ></a>
-
-        <a
-            href="prenup.html"
-            class="invitation-button prenup-button"
-            aria-label="Open Prenup"
-            title="Prenup"
-        ></a>
-
-    </main>
-
-</body>
-</html>
-```
