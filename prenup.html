@@ -1,355 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f9fc">
-  <title>Jelai & Jhun | Prenup Gallery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --powder: #eaf3f9;
-      --powder-mid: #d9e9f4;
-      --powder-deep: #a9c8df;
-      --ivory: #fffdf8;
-      --ink: #4e687d;
-      --muted: #718697;
-      --line: rgba(133, 169, 194, .32);
-      --shadow: 0 8px 25px rgba(71, 101, 123, .10);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--ivory);
-      background-image: url('prenup-bankground.png');
-      background-repeat: repeat-y;
-      background-position: top center;
-      background-size: 100% auto;
-      background-attachment: fixed;
-    }
-    a { color: inherit; }
-    .hero {
-      min-height: 64vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 5rem 1.2rem;
-      background: linear-gradient(135deg, rgba(225,239,248,.58), rgba(255,253,248,.55) 52%, rgba(223,237,247,.56));
-      border-bottom: 1px solid var(--line);
-    }
-    .hero-inner { max-width: 850px; }
-    .eyebrow {
-      letter-spacing: .27em;
-      text-transform: uppercase;
-      font-size: .7rem;
-      font-weight: 600;
-      color: #6e8ba1;
-    }
-    h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
-    .hero h1 {
-      font-size: clamp(3.4rem, 10vw, 7.4rem);
-      line-height: .92;
-      margin: 1.2rem 0;
-      color: #526e83;
-    }
-    .hero h1 span { color: #8eafc8; font-style: italic; }
-    .hero p {
-      max-width: 600px;
-      margin: 1.2rem auto;
-      font-size: .9rem;
-      line-height: 1.9;
-      color: #6c8496;
-    }
-    .date-pill {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: .8rem 1.2rem;
-      border: 1px solid rgba(133,169,194,.6);
-      border-radius: 999px;
-      background: rgba(255,253,248,.72);
-      font-size: .7rem;
-      letter-spacing: .12em;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 1.6rem;
-      padding: .9rem 1.4rem;
-      text-decoration: none;
-      background: #c5ddec;
-      color: #405d72;
-      border: 1px solid rgba(115,154,181,.25);
-      border-radius: 999px;
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      transition: transform .2s, background .2s;
-    }
-    .cta:hover { transform: translateY(-2px); background: #d4e7f3; }
-
-    .gallery-section {
-      width: min(100%, 1350px);
-      margin: 0 auto;
-      padding: 4.6rem clamp(.75rem, 3vw, 2.5rem) 5rem;
-      background: rgba(255,253,248,.16);
-    }
-    .section-head { text-align: center; margin: 0 auto 2.5rem; }
-    .section-head .eyebrow { color: #7899b1; }
-    .section-head h2 {
-      font-size: clamp(3.3rem, 8vw, 6.2rem);
-      line-height: .9;
-      margin: .75rem 0 .4rem;
-      color: #6f94af;
-    }
-    .ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .8rem;
-      margin: 1.2rem auto 0;
-      color: #a9c8df;
-      font-size: 1.2rem;
-    }
-    .ornament::before, .ornament::after {
-      content: "";
-      width: min(18vw, 110px);
-      height: 1px;
-      background: var(--line);
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(.55rem, 1.5vw, 1.15rem);
-    }
-    .photo-card {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 3 / 4;
-      min-height: 190px;
-      border-radius: 8px;
-      border: 4px solid rgba(255,253,248,.95);
-      outline: 1px solid rgba(169,200,223,.65);
-      background: linear-gradient(145deg, #e5f0f7, #fffdf8);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      padding: 0;
-    }
-    /* Contain keeps the whole uploaded photo visible; no automatic crop/zoom. */
-    .photo-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      transition: none;
-      background: rgba(234,243,249,.55);
-    }
-    .photo-card:hover img { transform: none; }
-    .photo-card:focus-visible { outline: 3px solid #739dbb; outline-offset: 3px; }
-    .empty-slot {
-      width: 100%; height: 100%; min-height: inherit;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: .7rem; padding: 1rem; color: #7997ad; text-align: center;
-      background: linear-gradient(145deg, rgba(221,237,247,.48), rgba(255,253,248,.56));
-    }
-    .empty-slot .plus { font-size: 2.2rem; line-height: 1; font-weight: 300; }
-    .empty-slot span:last-child { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
-    .gallery-tools {
-      display: flex; justify-content: center; align-items: center; gap: .7rem;
-      flex-wrap: wrap; margin: 0 auto 2rem; text-align: center;
-    }
-    .tool-button, .upload-label {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: .45rem; border: 1px solid #b8d2e4; border-radius: 999px;
-      padding: .75rem 1.05rem; background: rgba(255,253,248,.82);
-      color: #526e83; font: inherit; font-size: .68rem; cursor: pointer;
-    }
-    .tool-button:hover, .upload-label:hover { background: #e3f0f8; }
-    #photoUpload { display: none; }
-    .closing {
-      text-align: center; padding: 4.2rem 1rem;
-      background: linear-gradient(135deg, rgba(225,239,248,.48), rgba(255,253,248,.58), rgba(225,239,248,.5));
-      border-top: 1px solid var(--line);
-    }
-    .closing .eyebrow { color: #7899b1; }
-    .closing h2 { font-size: clamp(2.8rem, 7vw, 5rem); margin: .6rem 0; color: #6f94af; }
-    .closing p { font-size: .78rem; line-height: 1.9; color: var(--muted); }
-    footer {
-      padding: 1.4rem; text-align: center; color: #6f8798;
-      background: rgba(255,253,248,.48); font-size: .64rem; letter-spacing: .08em;
-    }
-    .lightbox {
-      position: fixed; inset: 0; z-index: 20; display: none; place-items: center;
-      padding: 1rem; background: rgba(31,47,60,.93);
-    }
-    .lightbox.open { display: grid; }
-    .lightbox img {
-      max-width: min(92vw, 850px); max-height: 84vh;
-      object-fit: contain; border-radius: 5px; box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    }
-    .lightbox button {
-      position: absolute; width: 44px; height: 44px;
-      border: 1px solid rgba(255,255,255,.35); border-radius: 50%;
-      color: white; background: rgba(255,255,255,.14); cursor: pointer; font-size: 1.5rem;
-    }
-    .close-lightbox { top: 1rem; right: 1rem; }
-    .prev { left: 1rem; top: 50%; transform: translateY(-50%); }
-    .next { right: 1rem; top: 50%; transform: translateY(-50%); }
-    @media (max-width: 850px) {
-      body { background-attachment: scroll; background-size: auto 100vh; }
-      .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .photo-card { min-height: 150px; }
-      .gallery-section { padding-top: 3.8rem; }
-    }
-    @media (max-width: 480px) {
-      .hero { min-height: 58vh; padding: 3.8rem 1rem; }
-      .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
-      .photo-card { min-height: 125px; border-width: 2px; border-radius: 6px; }
-      .gallery-section { padding: 3.4rem .45rem; }
-      .section-head { margin-bottom: 1.8rem; }
-      .empty-slot { padding: .25rem; gap: .3rem; }
-      .empty-slot .plus { font-size: 1.5rem; }
-      .empty-slot span:last-child { font-size: .48rem; letter-spacing: .04em; }
-    }
-  </style>
-</head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8f5"><title>Our Prenup | Jelai &amp; Jhun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--powder:#dcebf5;--powder-dark:#8aaec7;--ivory:#fffdf7;--ink:#4d6272;--muted:#758491;--line:rgba(138,174,199,.42);--shadow:0 8px 24px rgba(65,88,105,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:Montserrat,sans-serif;background:var(--ivory) url('prenup-bankground.png') top center/100% auto repeat-y;background-attachment:fixed}
+.hero{min-height:48vh;display:grid;place-items:center;text-align:center;padding:4rem 1.1rem;background:linear-gradient(135deg,rgba(225,239,248,.55),rgba(255,253,247,.58),rgba(225,239,248,.52));border-bottom:1px solid var(--line)}
+.hero-inner{max-width:850px}.eyebrow{color:#6f91aa;font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:500}h1{color:#526d82;font-size:clamp(3.5rem,10vw,7rem);line-height:.92;margin:1rem 0}h1 span{color:var(--powder-dark);font-style:italic}
+.hero p{max-width:560px;margin:1rem auto;color:#6d8292;font-size:.86rem;line-height:1.8}
+.date{display:inline-block;margin-top:.7rem;padding:.75rem 1.15rem;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,247,.76);font-size:.68rem;letter-spacing:.12em}
+.button{display:inline-block;margin:1.25rem .25rem 0;padding:.78rem 1.15rem;border-radius:999px;border:1px solid rgba(138,174,199,.55);background:rgba(255,253,247,.86);color:#4d6b80;text-decoration:none;font:600 .67rem Montserrat,sans-serif;letter-spacing:.08em;cursor:pointer}.button:hover{background:#e3eff7}
+.gallery-section{width:min(100%,1400px);margin:0 auto;padding:3.6rem clamp(.55rem,2.5vw,2rem) 4.5rem;background:rgba(255,253,247,.22)}
+.section-heading{text-align:center;margin:0 auto 2.3rem}.section-heading h2{color:#6b8fa9;font-size:clamp(3.1rem,7.5vw,6rem);line-height:.92;margin:.65rem 0 .45rem}
+.ornament{display:flex;justify-content:center;align-items:center;gap:.8rem;color:#9dbed5;margin-top:1rem}.ornament:before,.ornament:after{content:"";width:min(16vw,100px);height:1px;background:var(--line)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.45rem,1.35vw,1rem)}
+.photo-card{min-width:0;aspect-ratio:3/4;overflow:hidden;padding:0;border:4px solid rgba(255,253,247,.96);outline:1px solid rgba(138,174,199,.48);border-radius:7px;background:rgba(224,237,246,.72);box-shadow:var(--shadow);cursor:pointer}
+.photo-card img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:transparent;transition:none}.photo-card:hover img{transform:none}.photo-card:focus-visible{outline:3px solid #759db9;outline-offset:3px}
+.photo-missing{height:100%;display:grid;place-items:center;padding:.4rem;color:#6f8fa7;background:rgba(228,239,247,.6);font-size:.62rem;text-align:center}
+.closing{padding:3.5rem 1rem;text-align:center;background:linear-gradient(135deg,rgba(225,239,248,.55),rgba(255,253,247,.65),rgba(225,239,248,.52));border-top:1px solid var(--line)}
+.closing h2{margin:.6rem 0;color:#6b8fa9;font-size:clamp(2.8rem,7vw,4.8rem)}.closing p{color:var(--muted);font-size:.76rem}
+footer{padding:1.2rem;text-align:center;color:#718697;background:rgba(255,253,247,.6);font-size:.62rem;letter-spacing:.08em}
+.lightbox{display:none;position:fixed;inset:0;z-index:50;place-items:center;padding:1rem;background:rgba(28,39,49,.94)}.lightbox.open{display:grid}.lightbox img{display:block;max-width:min(92vw,1000px);max-height:86vh;object-fit:contain}
+.lightbox button{position:absolute;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(255,255,255,.14);color:white;font-size:1.5rem;cursor:pointer}
+.lightbox-close{top:1rem;right:1rem}.lightbox-prev{left:1rem;top:50%;transform:translateY(-50%)}.lightbox-next{right:1rem;top:50%;transform:translateY(-50%)}
+@media(max-width:650px){body{background-attachment:scroll;background-size:auto 100vh}.hero{min-height:42vh;padding:3rem 1rem}.gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:.38rem}.photo-card{border-width:2px;border-radius:5px}.gallery-section{padding:3rem .45rem 3.5rem}.section-heading{margin-bottom:1.6rem}}
+</style></head>
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Our Prenup Collection</div>
-      <h1>Jelai <span>&</span> Jhun</h1>
-      <p>A romantic collection celebrating our journey toward forever.</p>
-      <div class="date-pill">DECEMBER 28, 2026</div><br>
-      <a class="cta" href="#gallery">VIEW OUR PHOTOS ↓</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="gallery-section" id="gallery">
-      <div class="section-head">
-        <div class="eyebrow">Jelai & Jhun · Prenup</div>
-        <h2>A little gallery<br>of forever</h2>
-        <div class="ornament" aria-hidden="true">❦</div>
-      </div>
-
-      <div class="gallery" id="photoGallery" aria-label="Jelai and Jhun prenup photo gallery"></div>
-    </section>
-
-    <section class="closing">
-      <div class="eyebrow">Two hearts, one beautiful story</div>
-      <h2>Forever begins with us</h2>
-      <p>Jelai & Jhun · December 28, 2026</p>
-      <a class="cta" href="#gallery">BACK TO OUR PHOTOS ↑</a>
-    </section>
-  </main>
-  <footer>MADE WITH LOVE FOR JELAI & JHUN</footer>
-
-  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Expanded prenup photo">
-    <button class="close-lightbox" id="closeLightbox" aria-label="Close photo">×</button>
-    <button class="prev" id="prevImage" aria-label="Previous photo">‹</button>
-    <img id="lightboxImage" src="" alt="Jelai and Jhun prenup photo enlarged">
-    <button class="next" id="nextImage" aria-label="Next photo">›</button>
-  </div>
-
-  <script>
-    /*
-      48 photo slots, arranged 3 per row.
-      To publish photos on GitHub, upload them to a folder named "images"
-      and replace each null with a path, e.g. "images/prenup-01.jpg".
-      Visitors can also click any empty slot to choose a photo from their computer
-      for a local preview in their current browser.
-    */
-    const photos = Array(48).fill(null);
-    const gallery = document.getElementById("photoGallery");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    let objectUrls = [];
-    let currentIndex = 0;
-
-    function renderGallery() {
-      gallery.innerHTML = "";
-      photos.forEach((src, index) => {
-        const button = document.createElement("button");
-        button.className = "photo-card";
-        button.type = "button";
-        button.setAttribute("aria-label", src ? `Open prenup photo ${index + 1}` : `Add photo to slot ${index + 1}`);
-        if (src) {
-          const img = document.createElement("img");
-          img.src = src;
-          img.alt = `Jelai and Jhun prenup photo ${index + 1}`;
-          img.loading = "lazy";
-          button.appendChild(img);
-          button.addEventListener("click", () => openLightbox(index));
-        } else {
-          const empty = document.createElement("span");
-          empty.className = "empty-slot";
-          empty.innerHTML = `<span class="plus">＋</span><span>Photo ${String(index + 1).padStart(2, "0")}</span>`;
-          button.appendChild(empty);
-          button.addEventListener("click", () => choosePhotoForSlot(index));
-        }
-        gallery.appendChild(button);
-      });
-    }
-
-    let selectedSlot = 0;
-    const picker = document.createElement("input");
-    picker.type = "file";
-    picker.accept = "image/*";
-    picker.hidden = true;
-    document.body.appendChild(picker);
-
-    function choosePhotoForSlot(index) {
-      selectedSlot = index;
-      picker.value = "";
-      picker.click();
-    }
-
-    picker.addEventListener("change", event => {
-      const file = event.target.files && event.target.files[0];
-      if (!file || !file.type.startsWith("image/")) return;
-      if (photos[selectedSlot] && photos[selectedSlot].startsWith("blob:")) {
-        URL.revokeObjectURL(photos[selectedSlot]);
-        objectUrls = objectUrls.filter(url => url !== photos[selectedSlot]);
-      }
-      const url = URL.createObjectURL(file);
-      objectUrls.push(url);
-      photos[selectedSlot] = url;
-      renderGallery();
-    });
-
-    function openLightbox(index) {
-      if (!photos[index]) return;
-      currentIndex = index;
-      lightboxImage.src = photos[currentIndex];
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      document.body.style.overflow = "";
-      lightboxImage.removeAttribute("src");
-    }
-    function movePhoto(direction) {
-      for (let step = 1; step <= photos.length; step++) {
-        const nextIndex = (currentIndex + direction * step + photos.length) % photos.length;
-        if (photos[nextIndex]) { openLightbox(nextIndex); return; }
-      }
-    }
-    document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
-    document.getElementById("prevImage").addEventListener("click", () => movePhoto(-1));
-    document.getElementById("nextImage").addEventListener("click", () => movePhoto(1));
-    lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
-    document.addEventListener("keydown", event => {
-      if (!lightbox.classList.contains("open")) return;
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowLeft") movePhoto(-1);
-      if (event.key === "ArrowRight") movePhoto(1);
-    });
-    renderGallery();
-  </script>
-</body>
-</html>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">Our Prenup Collection</div><h1>Jelai <span>&amp;</span> Jhun</h1><p>A romantic collection celebrating our journey toward forever.</p><div class="date">DECEMBER 28, 2026</div><br>
+<!-- Back goes to the invitation's clickable-area page, not the envelope-opening screen. -->
+<a class="button" href="inside.html#clickable-area">← BACK TO OUR INVITATION</a></div></header>
+<main><section class="gallery-section" id="gallery"><div class="section-heading"><div class="eyebrow">Jelai &amp; Jhun · Prenup</div><h2>A little gallery<br>of forever</h2><div class="ornament" aria-hidden="true">❦</div></div><div class="gallery" id="photoGallery" aria-label="Jelai and Jhun prenup gallery"></div></section>
+<section class="closing"><div class="eyebrow">Two hearts, one beautiful story</div><h2>Forever begins with us</h2><p>Jelai &amp; Jhun · December 28, 2026</p><a class="button" href="inside.html#clickable-area">← BACK TO OUR INVITATION</a></section></main>
+<footer>MADE WITH LOVE FOR JELAI &amp; JHUN</footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded prenup photograph"><button class="lightbox-close" id="closeLightbox" aria-label="Close photo">×</button><button class="lightbox-prev" id="prevPhoto" aria-label="Previous photo">‹</button><img id="lightboxImage" src="" alt="Expanded prenup photograph"><button class="lightbox-next" id="nextPhoto" aria-label="Next photo">›</button></div>
+<script>
+/* 100 files in PRENUP; k.jpg is intentionally excluded. */
+const photoPaths = [
+  "PRENUP/prenup%201.jpg",
+  "PRENUP/prenup%202.jpg",
+  "PRENUP/prenup%203.jpg",
+  "PRENUP/prenup%204.jpg",
+  "PRENUP/prenup%205.jpg",
+  "PRENUP/prenup%206.jpg",
+  "PRENUP/prenup%207.jpg",
+  "PRENUP/prenup%208.jpg",
+  "PRENUP/prenup%209.jpg",
+  "PRENUP/prenup%2010.jpg",
+  "PRENUP/prenup%2011.jpg",
+  "PRENUP/prenup%2012.jpg",
+  "PRENUP/prenup%2013.jpg",
+  "PRENUP/prenup%2014.jpg",
+  "PRENUP/prenup%2015.jpg",
+  "PRENUP/prenup%2016.jpg",
+  "PRENUP/prenup%2017.jpg",
+  "PRENUP/prenup%2018.jpg",
+  "PRENUP/prenup%2019.jpg",
+  "PRENUP/prenup%2020.jpg",
+  "PRENUP/prenup%2021.jpg",
+  "PRENUP/prenup%2022.jpg",
+  "PRENUP/prenup%2023.jpg",
+  "PRENUP/prenup%2024.jpg",
+  "PRENUP/prenup%2025.jpg",
+  "PRENUP/prenup%2026.jpg",
+  "PRENUP/prenup%2027.jpg",
+  "PRENUP/prenup%2028.jpg",
+  "PRENUP/prenup%2029.jpg",
+  "PRENUP/prenup%2030.jpg",
+  "PRENUP/prenup%2031.jpg",
+  "PRENUP/prenup%2032.jpg",
+  "PRENUP/prenup%2033.jpg",
+  "PRENUP/prenup%2034.jpg",
+  "PRENUP/prenup%2035.jpg",
+  "PRENUP/prenup%2036.jpg",
+  "PRENUP/prenup%2037.jpg",
+  "PRENUP/prenup%2038.jpg",
+  "PRENUP/prenup%2039.jpg",
+  "PRENUP/prenup%2040.jpg",
+  "PRENUP/prenup%2041.jpg",
+  "PRENUP/prenup%2042.jpg",
+  "PRENUP/prenup%2043.jpg",
+  "PRENUP/prenup%2044.jpg",
+  "PRENUP/prenup%2045.jpg",
+  "PRENUP/prenup%2046.jpg",
+  "PRENUP/prenup%2047.jpg",
+  "PRENUP/prenup%2048.jpg",
+  "PRENUP/prenup%2049.jpg",
+  "PRENUP/prenup%2050.jpg",
+  "PRENUP/prenup%2051.jpg",
+  "PRENUP/prenup%2052.jpg",
+  "PRENUP/prenup%2053.jpg",
+  "PRENUP/prenup%2054.jpg",
+  "PRENUP/prenup%2055.jpg",
+  "PRENUP/prenup%2056.jpg",
+  "PRENUP/prenup%2057.jpg",
+  "PRENUP/prenup%2058.jpg",
+  "PRENUP/prenup%2059.jpg",
+  "PRENUP/prenup%2060.jpg",
+  "PRENUP/prenup%2061.jpg",
+  "PRENUP/prenup%2062.jpg",
+  "PRENUP/prenup%2063.jpg",
+  "PRENUP/prenup%2064.jpg",
+  "PRENUP/prenup%2065.jpg",
+  "PRENUP/prenup%2066.jpg",
+  "PRENUP/prenup%2067.jpg",
+  "PRENUP/prenup%2068.jpg",
+  "PRENUP/prenup%2069.jpg",
+  "PRENUP/prenup%2070.jpg",
+  "PRENUP/prenup%2071.jpg",
+  "PRENUP/prenup%2072.jpg",
+  "PRENUP/prenup%2073.jpg",
+  "PRENUP/prenup%2074.jpg",
+  "PRENUP/prenup%2075.jpg",
+  "PRENUP/prenup%2076.jpg",
+  "PRENUP/prenup%2077.jpg",
+  "PRENUP/prenup%2078.jpg",
+  "PRENUP/prenup%2079.jpg",
+  "PRENUP/prenup%2080.jpg",
+  "PRENUP/prenup%2081.jpg",
+  "PRENUP/prenup%2082.jpg",
+  "PRENUP/prenup%2083.jpg",
+  "PRENUP/prenup%2084.jpg",
+  "PRENUP/prenup%2085.jpg",
+  "PRENUP/prenup%2086.jpg",
+  "PRENUP/prenup%2087.jpg",
+  "PRENUP/prenup%2088.jpg",
+  "PRENUP/prenup%2089.jpg",
+  "PRENUP/prenup%2090.jpg",
+  "PRENUP/prenup%2091.jpg",
+  "PRENUP/prenup%2092.jpg",
+  "PRENUP/prenup%2093.jpg",
+  "PRENUP/prenup%2094.jpg",
+  "PRENUP/prenup%2095.jpg",
+  "PRENUP/prenup%2096.jpg",
+  "PRENUP/prenup%2097.jpg",
+  "PRENUP/prenup%2098.jpg",
+  "PRENUP/prenup%2099.jpg",
+  "PRENUP/prenup%20100.jpg"
+];
+const gallery=document.getElementById('photoGallery'), lightbox=document.getElementById('lightbox'), lightboxImage=document.getElementById('lightboxImage');
+let activeIndex=0;
+photoPaths.forEach((src,index)=>{const card=document.createElement('button');card.type='button';card.className='photo-card';card.setAttribute('aria-label',`Open prenup photo ${index+1}`);
+const image=document.createElement('img');image.src=src;image.alt=`Jelai and Jhun prenup photo ${index+1}`;image.loading=index<9?'eager':'lazy';
+image.onerror=()=>{image.onerror=null;const missing=document.createElement('div');missing.className='photo-missing';missing.textContent=`Photo file not found: prenup ${index+1}.jpg`;card.replaceChildren(missing);card.disabled=true};
+card.appendChild(image);card.addEventListener('click',()=>openPhoto(index));gallery.appendChild(card)});
+function openPhoto(index){activeIndex=index;lightboxImage.src=photoPaths[activeIndex];lightbox.classList.add('open');document.body.style.overflow='hidden'}
+function closePhoto(){lightbox.classList.remove('open');lightboxImage.removeAttribute('src');document.body.style.overflow=''}
+function movePhoto(direction){activeIndex=(activeIndex+direction+photoPaths.length)%photoPaths.length;openPhoto(activeIndex)}
+document.getElementById('closeLightbox').addEventListener('click',closePhoto);document.getElementById('prevPhoto').addEventListener('click',()=>movePhoto(-1));document.getElementById('nextPhoto').addEventListener('click',()=>movePhoto(1));
+lightbox.addEventListener('click',event=>{if(event.target===lightbox)closePhoto()});
+document.addEventListener('keydown',event=>{if(!lightbox.classList.contains('open'))return;if(event.key==='Escape')closePhoto();if(event.key==='ArrowLeft')movePhoto(-1);if(event.key==='ArrowRight')movePhoto(1)});
+</script></body></html>
